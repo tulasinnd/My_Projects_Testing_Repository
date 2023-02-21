@@ -7,18 +7,23 @@ import time
 import streamlit as st 
 import plotly.graph_objects as go
 
-
+# AWS_RDS_username='admin'
+# AWS_RDS_password='12345phone'
+# Endpoint= 'database-1.cazjp4zi8ncb.ap-northeast-1.rds.amazonaws.com'
 # Master username
 # admin
 # Master password
 # 12345phone
 # Endpoint
 # database-1.cazjp4zi8ncb.ap-northeast-1.rds.amazonaws.com
+username=st.secrets['AWS_RDS_username']
+password=st.secrets['AWS_RDS_password']
+Endpoint=st.secrets['Endpoint']
 
 conn=pymysql.connect(
-    host='database-1.cazjp4zi8ncb.ap-northeast-1.rds.amazonaws.com',
-    user='admin',
-    password='12345phone'
+    host=Endpoint,
+    user=username,
+    password=password
 )
 
 mycursor=conn.cursor()
