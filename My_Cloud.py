@@ -2,7 +2,7 @@ import pymysql
 import pandas as pd
 import csv
 import os
-import mysql.connector
+# import mysql.connector
 import time
 import streamlit as st 
 import plotly.graph_objects as go
