@@ -7,8 +7,15 @@ st. set_page_config(layout="wide")
 #title
 st.title("EXTRACTING TEXT FROM IMAGES USING OCR")
 
-#image uploader
-image = st.file_uploader(label = "Upload your image here",type=['png','jpg','jpeg'])
+col1, col2,col3 = st.columns([2.5,2.5,5])
+with col1:
+    #image uploader
+    image = st.file_uploader(label = "Upload your image here",type=['png','jpg','jpeg'])
+with col3:
+    pass
+
+
+
 
 
 @st.cache
@@ -21,13 +28,12 @@ reader = load_model() #load model
 if image is not None:
 
     input_image = Image.open(image) #read image
-    st.image(input_image) #display image
-
-    with st.spinner("🤖 AI is at Work! "):
+    with col2:
+        st.image(input_image) #display image
+        with st.spinner("🤖 AI is at Work! "):
         
 
         result = reader.readtext(np.array(input_image))
-
         result_text = [] #empty list for results
 
 
