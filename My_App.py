@@ -52,7 +52,7 @@ if image is not None:
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
             
-file='\n'.join(result_text)    
+  
  
 
 
