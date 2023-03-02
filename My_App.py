@@ -24,7 +24,7 @@ reader = load_model() #load model
 if image is not None:
     input_image = Image.open(image) #read image
     with col2:
-        st.write("## YOUR UPLOADED IMAGE")
+        st.write("## YOUR IMAGE")
         st.image(input_image) #display image        
     
     result = reader.readtext(np.array(input_image))
@@ -36,8 +36,11 @@ if image is not None:
         st.write("## EXTRACTED TEXT")
         for i in result_text:
             st.write(i)
-with col4:
-    st.write("UPLOAD TO DATABASE")
+    with col4:
+        st.write("## UPLOAD TO DATABASE")
+        if st.button('UPLOAD'):
+            st.write('WRITE CODE FOR UPLOAD')
+    
 
 
 
