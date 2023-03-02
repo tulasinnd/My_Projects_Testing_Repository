@@ -2,4 +2,3 @@ streamlit
 easyocr
 numpy
 pillow
-tempfile
