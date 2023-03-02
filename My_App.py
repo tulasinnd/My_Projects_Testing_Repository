@@ -52,17 +52,17 @@ if image is not None:
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
             
-str1 = ""
+    str1 = ""
    
-for ele in result_text:    
-    str1 += ele
+    for ele in result_text:    
+        str1 += ele
 
-import spacy
-nlp = spacy.load('en_core_web_sm')
-doc= nlp(str1)
+    import spacy
+    nlp = spacy.load('en_core_web_sm')
+    doc= nlp(str1)
 
-for ent in doc.ents:
-    st.write(ent.text,'|', ent.label_)
+    for ent in doc.ents:
+        st.write(ent.text,'|', ent.label_)
  
 
 
