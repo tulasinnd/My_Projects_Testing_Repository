@@ -51,6 +51,16 @@ if image is not None:
         st.write("## UPLOAD OR DELETE")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
+           
+import tempfile
+temp = tempfile.TemporaryFile()
+try:
+    temp.write('\n'.join(result_text))
+    temp.seek(0)
+    print(temp.read())
+finally:
+    temp.close()
+
     
 
 
