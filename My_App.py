@@ -32,6 +32,17 @@ if image is not None:
     for text in result:
         result_text.append(text[1])
         
+# company name, 
+# card holder name, 
+# designation, 
+# mobile number, 
+# email address, 
+# website URL, 
+# area, 
+# city, 
+# state,
+# pin code
+
     with col3:
         st.write("## EXTRACTED TEXT")
         for i in result_text:
