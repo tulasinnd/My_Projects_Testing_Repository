@@ -51,14 +51,14 @@ if image is not None:
         st.write("## UPLOAD OR DELETE")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
+    import en_core_web_sm
+    nlp = en_core_web_sm.load()
             
     str1 = ""
    
     for ele in result_text:    
         str1 += ele
 
-    import spacy
-    nlp = spacy.load('en_core_web_sm')
     doc= nlp(str1)
 
     for ent in doc.ents:
