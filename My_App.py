@@ -53,6 +53,7 @@ if image is not None:
             st.write('WRITE CODE FOR UPLOAD')
     import en_core_web_sm
     nlp = en_core_web_sm.load()
+    import spacy
             
     str1 = ""
    
@@ -62,9 +63,5 @@ if image is not None:
     doc= nlp(str1)
 
     for ent in doc.ents:
-        st.write(ent.text,'|', ent.label_)
+        st.write(ent.text,'| ', ent.label_, '| ', spacy.explain(ent.label_))
  
-
-
-
-
