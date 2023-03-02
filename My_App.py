@@ -54,7 +54,7 @@ if image is not None:
             
 str1 = ""
    
-for ele in s:    
+for ele in result_text:    
     str1 += ele
 
 import spacy
