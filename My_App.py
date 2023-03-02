@@ -2,14 +2,10 @@ import easyocr as ocr  #OCR
 import streamlit as st  #Web App
 from PIL import Image #Image Processing
 import numpy as np #Image Processing 
+st. set_page_config(layout="wide")
 
 #title
-st.title("Easy OCR - Extract Text from Images")
-
-#subtitle
-st.markdown("## Optical Character Recognition - Using `easyocr`, `streamlit`")
-
-st.markdown("")
+st.title("EXTRACTING TEXT FROM IMAGES USING OCR")
 
 #image uploader
 image = st.file_uploader(label = "Upload your image here",type=['png','jpg','jpeg'])
@@ -17,7 +13,7 @@ image = st.file_uploader(label = "Upload your image here",type=['png','jpg','jpe
 
 @st.cache
 def load_model(): 
-    reader = ocr.Reader(['en'],model_storage_directory='.')
+    reader = ocr.Reader(['en'])#,model_storage_directory='.')
     return reader 
 
 reader = load_model() #load model
@@ -39,10 +35,9 @@ if image is not None:
             result_text.append(text[1])
 
         st.write(result_text)
-    #st.success("Here you go!")
     st.balloons()
 else:
     st.write("Upload an Image")
 
-st.caption("Made with ❤️ by @1littlecoder")
+
 
