@@ -30,9 +30,8 @@ if image is not None:
     input_image = Image.open(image) #read image
     with col2:
         st.image(input_image) #display image
-        with st.spinner("🤖 AI is at Work! "):
         
-
+    with st.spinner("🤖 AI is at Work! "):      
         result = reader.readtext(np.array(input_image))
         result_text = [] #empty list for results
 
