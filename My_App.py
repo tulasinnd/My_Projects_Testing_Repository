@@ -6,11 +6,13 @@ st. set_page_config(layout="wide")
 
 #title
 st.title("EXTRACTING TEXT FROM IMAGES USING OCR")
-
-col1, col2,col3 = st.columns([2.5,2.5,5])
+st.write(" ")
+st.write(" ")
+col1, col2,col3,col4 = st.columns([2,2,2,2])
 with col1:
     #image uploader
-    image = st.file_uploader(label = "Upload your image here",type=['png','jpg','jpeg'])
+    st.write("## UPLOAD IMAGE")
+    image = st.file_uploader(label = "",type=['png','jpg','jpeg'])
 
 @st.cache
 def load_model(): 
@@ -22,6 +24,7 @@ reader = load_model() #load model
 if image is not None:
     input_image = Image.open(image) #read image
     with col2:
+        st.write("## YOUR UPLOADED IMAGE")
         st.image(input_image) #display image        
     
     result = reader.readtext(np.array(input_image))
@@ -30,8 +33,11 @@ if image is not None:
         result_text.append(text[1])
         
     with col3:
+        st.write("## EXTRACTED TEXT")
         for i in result_text:
             st.write(i)
+with col4:
+    st.write("UPLOAD TO DATABASE")
 
 
 
