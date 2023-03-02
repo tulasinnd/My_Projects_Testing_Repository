@@ -37,7 +37,7 @@ if image is not None:
         for i in result_text:
             st.write(i)
     with col4:
-        st.write("## UPLOAD TO DATABASE")
+        st.write("## UPLOAD OR DELETE")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
     
