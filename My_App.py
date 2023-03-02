@@ -11,12 +11,6 @@ col1, col2,col3 = st.columns([2.5,2.5,5])
 with col1:
     #image uploader
     image = st.file_uploader(label = "Upload your image here",type=['png','jpg','jpeg'])
-with col3:
-    pass
-
-
-
-
 
 @st.cache
 def load_model(): 
@@ -26,23 +20,19 @@ def load_model():
 reader = load_model() #load model
 
 if image is not None:
-
     input_image = Image.open(image) #read image
     with col2:
-        st.image(input_image) #display image
+        st.image(input_image) #display image        
+    
+    result = reader.readtext(np.array(input_image))
+    result_text = [] #empty list for results
+    for text in result:
+        result_text.append(text[1])
         
-    with st.spinner("🤖 AI is at Work! "):      
-        result = reader.readtext(np.array(input_image))
-        result_text = [] #empty list for results
+    with col3:
+        for i in result_text:
+            st.write(i)
 
-
-        for text in result:
-            result_text.append(text[1])
-
-        st.write(result_text)
-    st.balloons()
-else:
-    st.write("Upload an Image")
 
 
 
