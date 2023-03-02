@@ -52,14 +52,14 @@ if image is not None:
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
            
-import tempfile
-temp = tempfile.TemporaryFile()
+from temp import tempfile
+tempf = tempfile.TemporaryFile()
 try:
-    temp.write('\n'.join(result_text))
-    temp.seek(0)
-    print(temp.read())
+    tempf.write('\n'.join(result_text))
+    tempf.seek(0)
+    print(tempf.read())
 finally:
-    temp.close()
+    tempf.close()
 
     
 
