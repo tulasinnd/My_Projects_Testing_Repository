@@ -63,7 +63,7 @@ if image is not None:
     phone_pattern = r'\b\d{3}[-.]?\d{3}[-.]?\d{4}\b'
 
     # Regular expression for website URLs
-    url_pattern = r'\b(?:https?://|www\.)\S+\b'
+    url_pattern = r"www\.\w+\.com"
 
     # Regular expression for pin codes
     pincode_pattern = r'\b\d{6}\b'
