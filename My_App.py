@@ -51,8 +51,6 @@ if image is not None:
         st.write("## UPLOAD OR DELETE")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
-    
-    # FINDING LABELS FOR TEXT
     import en_core_web_sm
     nlp = en_core_web_sm.load()
     import spacy
@@ -61,15 +59,12 @@ if image is not None:
    
     for ele in result_text:    
         str1 += ele
-    st.write("# LIST")
-    st.write(result_text)
-    st.write("# STRING")
-    st.write(str1)
-    doc= nlp(str1)
-     
-    st.write("# LABELED")
+
+    doc= nlp(result_text)
+
     for ent in doc.ents:
         st.write(ent.text,'| ', ent.label_, '| ', spacy.explain(ent.label_))
+    
+    
         
- 
- 
+   
