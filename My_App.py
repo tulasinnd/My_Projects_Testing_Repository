@@ -64,6 +64,13 @@ if image is not None:
 
     for ent in doc.ents:
         st.write(ent.text,'| ', ent.label_, '| ', spacy.explain(ent.label_))
+        
+    from geotext import GeoText
+
+    st.write("PLACES")
+    places = GeoText(str1).cities
+
+    print(places)  # Output: ['Paris', 'New York']
     
     
         
