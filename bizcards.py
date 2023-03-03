@@ -53,6 +53,7 @@ if uploaded_file is not None:
             pin_code = r[0]
 
     st.write("## Extracted Information")
+    st.write(result)
     st.write(f"**Company Name:** {company_name}")
     st.write(f"**Card Holder Name:** {card_holder_name}")
     st.write(f"**Designation:** {designation}")
