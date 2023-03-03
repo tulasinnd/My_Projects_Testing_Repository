@@ -58,9 +58,9 @@ if image is not None:
     str1 = ""
    
     for ele in result_text:    
-        str1 += ele
+        str1 += ele+" "
 
-    doc= nlp(result_text)
+    doc= nlp(str1)
 
     for ent in doc.ents:
         st.write(ent.text,'| ', ent.label_, '| ', spacy.explain(ent.label_))
