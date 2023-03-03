@@ -1,6 +1,7 @@
 import streamlit as st
 import easyocr
 from PIL import Image
+import numpy as np #Image Processing 
 
 st.title("Business Card Reader")
 
@@ -16,7 +17,7 @@ if uploaded_file is not None:
 
     # Extract text from the image using EasyOCR
     reader = easyocr.Reader(['en'])
-    result = reader.readtext(image)
+    result = reader.readtext(np.array(image))
 
     # Display the extracted information
     company_name = ''
