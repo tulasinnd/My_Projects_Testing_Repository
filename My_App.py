@@ -32,17 +32,6 @@ if image is not None:
     for text in result:
         result_text.append(text[1])
         
-# company name, 
-# card holder name, 
-# designation, 
-# mobile number, 
-# email address, 
-# website URL, 
-# area, 
-# city, 
-# state,
-# pin code
-
     with col3:
         st.write("## EXTRACTED TEXT")
         for i in result_text:
@@ -65,12 +54,36 @@ if image is not None:
     for ent in doc.ents:
         st.write(ent.text,'| ', ent.label_, '| ', spacy.explain(ent.label_))
         
-    from geotext import GeoText
+    import re
 
-    st.write("PLACES")
-    places = GeoText(str1).cities
+    # Regular expression for email addresses
+    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 
-    print(places)  # Output: ['Paris', 'New York']
+    # Regular expression for phone numbers
+    phone_pattern = r'\b\d{3}[-.]?\d{3}[-.]?\d{4}\b'
+
+    # Regular expression for website URLs
+    url_pattern = r'\b(?:https?://|www\.)\S+\b'
+
+    # Regular expression for pin codes
+    pincode_pattern = r'\b\d{6}\b'
+
+    # Find all email addresses, phone numbers, website URLs, and pin codes in the string using regex
+    emails = re.findall(email_pattern, str1)
+    phone_numbers = re.findall(phone_pattern, str1)
+    urls = re.findall(url_pattern, str1)
+    pincodes = re.findall(pincode_pattern, str1)
+
+    # Print the results
+    st.write("DETAILS")
+    st.write("Email addresses:", emails)
+    st.write("Phone numbers:", phone_numbers)
+    st.write("Website URLs:", urls)
+    st.write("Pin codes:", pincodes)
+
+
+        
+
     
     
         
