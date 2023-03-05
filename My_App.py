@@ -79,22 +79,27 @@ if image is not None:
     st.write("Pin codes:", pincodes)
     
 
-    # regular expression pattern to match website addresses
-    pattern = r'\bwww\.[a-z0-9]+\.[a-z]{2,}\b'
+    # Find all words that start with "www" (case-insensitive) and do not contain "@"
+    matches = re.findall(r"\bwww(?!\S*@)\S*\b", str1, re.IGNORECASE)
 
-    # extract website addresses using regular expression
-    website_addresses = re.findall(pattern, str1)
+    # Process each match
+    for match in matches:
+        # Remove extra spaces
+        match = " ".join(match.split())
 
-    # format website addresses that match the criteria
-    formatted_addresses = []
-    for address in website_addresses:
-        if '@' not in address:
-            formatted_addresses.append('www.' + address.lower())
+        # Convert to lowercase
+        match = match.lower()
 
-    # print the formatted website addresses
-    for address in formatted_addresses:
-        st.write(address)
-    
+        # Add "." after "www" if not present
+        if not match.startswith("www."):
+            match = "www." + match[len("www"):]
+
+        # Add "." before "com" if not present
+        if not match.endswith(".com"):
+            match = match[:len(match) - len(".com")] + ".com"
+
+        st.write(match)
+
 
 
         
