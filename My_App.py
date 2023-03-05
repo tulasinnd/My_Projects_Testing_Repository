@@ -69,7 +69,6 @@ if image is not None:
     # Find all email addresses, phone numbers, website URLs, and pin codes in the string using regex
     emails = re.findall(email_pattern, str1)
     phone_numbers = re.findall(phone_pattern, str1)
-    urls = re.findall(url_pattern, str1)
     pincodes = re.findall(pincode_pattern, str1)
 
     # Print the results
