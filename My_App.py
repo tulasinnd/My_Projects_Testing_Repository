@@ -62,8 +62,6 @@ if image is not None:
     # Regular expression for phone numbers
     phone_pattern = r'\b\d{3}[-.]?\d{3}[-.]?\d{4}\b'
 
-    # Regular expression for website URLs
-    url_pattern = r"^[^@]*\.com$"
 
     # Regular expression for pin codes
     pincode_pattern = r'\b\d{6}\b'
@@ -78,8 +76,20 @@ if image is not None:
     st.write("DETAILS")
     st.write("Email addresses:", emails)
     st.write("Phone numbers:", phone_numbers)
-    st.write("Website URLs:", urls)
+#     st.write("Website URLs:", urls)
     st.write("Pin codes:", pincodes)
+    
+    # regular expression pattern to match website addresses
+    pattern = r'\b(www\.\S+\.com)\b|\b(\S+\.com)\b(?<!\S@\S)'
+
+    # extract website addresses using regular expression
+    website_addresses = re.findall(pattern, str1)
+
+    # concatenate "www" prefix to website addresses that don't contain "@"
+    website_addresses = [('www.' + address[0]) if not address[1] else address[1] for address in website_addresses]
+
+    # print the extracted website addresses
+    st.write("Website URLs:", website_addresses)
 
 
         
