@@ -78,17 +78,23 @@ if image is not None:
 #     st.write("Website URLs:", urls)
     st.write("Pin codes:", pincodes)
     
+
     # regular expression pattern to match website addresses
-    pattern = r'\b(www\.\S+\.com)\b|\b(\S+\.com)\b(?<!\S@\S)'
+    pattern = r'\bwww\.[a-z0-9]+\.[a-z]{2,}\b'
 
     # extract website addresses using regular expression
     website_addresses = re.findall(pattern, str1)
 
-    # concatenate "www" prefix to website addresses that don't contain "@"
-    website_addresses = [('www.' + address[0]) if not address[1] else address[1] for address in website_addresses]
+    # format website addresses that match the criteria
+    formatted_addresses = []
+    for address in website_addresses:
+        if '@' not in address:
+            formatted_addresses.append('www.' + address.lower())
 
-    # print the extracted website addresses
-    st.write("Website URLs:", website_addresses)
+    # print the formatted website addresses
+    for address in formatted_addresses:
+        st.write(address)
+    
 
 
         
