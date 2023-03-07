@@ -1,6 +1,7 @@
 import streamlit as st
 import easyocr
 import cv2
+import numpy as np
 
 # Define a function to get the bounding boxes and text from an image
 def get_bounding_boxes(image):
