@@ -30,9 +30,9 @@ def get_bounding_boxes(image):
         results = reader.readtext(roi)
         
         # Append the bounding box and text to the list of boxes
-        boxes.append(([x, y, x + w, y + h], results[0][1]))
+        st.write(results[0][1])
     
-    return boxes
+ 
 
 # Define the Streamlit app
 def main():
@@ -52,7 +52,7 @@ def main():
         image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
         
         # Get the bounding boxes and text for the image
-        boxes = get_bounding_boxes(image)
+        get_bounding_boxes(image)
         
         # Display the image with the bounding boxes and text
         st.image(image, channels='BGR', caption='Original Image')
