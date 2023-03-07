@@ -1,42 +1,25 @@
 import streamlit as st
 import easyocr
 import cv2
+import numpy as np
 
-
-
-# Main function to run the app
-
-st.set_page_config(page_title="OCR Bounding Box Extractor", page_icon=":books:")
-# Set up the sidebar
-st.sidebar.title("OCR Bounding Box Extractor")
-image = st.sidebar.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
-if not image:
-    st.warning("Please upload an image.")
-
-   
-# Load the image
-img = cv2.imread(image)
-# Convert the image to grayscale
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-# Apply binary thresholding to the image
-thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
-# Get the contours of the text in the image
-contours, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
-# Get the bounding boxes of the text in the image
-boxes = []
-for contour in contours:
-    x, y, w, h = cv2.boundingRect(contour)
-    boxes.append((x, y, x + w, y + h))
-    
-# Load the image
-img = cv2.imread(image)
-# Create an EasyOCR reader
-reader = easyocr.Reader(['en'], gpu=False)
-# Extract text from each bounding box
-texts = []
-for box in boxes:
-    cropped_img = img[box[1]:box[3], box[0]:box[2]]
-    text = reader.readtext(cropped_img)
-    texts.append(text)
-st.write(texts)
-
+st.set_page_config(page_title='Text Blocks Detection with EasyOCR')
+st.title('Text Blocks Detection with EasyOCR')
+st.write('Upload an image and the app will detect the text blocks in it.')
+uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'jpeg', 'png'])
+if uploaded_file is not None:
+    image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
+    reader = easyocr.Reader(['en'])
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    text_blocks = []
+    for contour in contours:
+        (x, y, w, h) = cv2.boundingRect(contour)
+        roi = image[y:y + h, x:x + w]
+        results = reader.readtext(roi)
+        if results:
+            text = [result[1] for result in results]
+            text_blocks.append((text, [x, y, x + w, y + h]))
+    for i, block in enumerate(text_blocks):
+        st.write(f'Text Block {i+1}:\nText: {block[0]}\nBounding Box: {block[1]}')
