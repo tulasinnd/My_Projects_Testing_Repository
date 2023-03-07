@@ -18,6 +18,6 @@ if uploaded_file is not None:
         (x, y, w, h) = cv2.boundingRect(contour)
         roi = image[y:y + h, x:x + w]
         results = reader.readtext(roi)
-        boxes.append(([x, y, x + w, y + h], results[0][1]))
+        boxes.append([results[0][1]])
     for i, box in enumerate(boxes):
         st.write(f'Text {i+1}: {box[1]}')
