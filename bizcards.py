@@ -45,6 +45,8 @@ image = st.sidebar.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 if not image:
     st.warning("Please upload an image.")
 # Process the image
-boxes = get_bounding_boxes(image)
-text=  extract_text(image, boxes)
-st.write(text)
+box_out=[]
+box_out = get_bounding_boxes(image)
+text_out=[]
+text_out=  extract_text(image, box_out)
+st.write(text_out)
