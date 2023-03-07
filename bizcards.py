@@ -1,26 +1,40 @@
 import streamlit as st
-import easyocr
 import cv2
+import pytesseract
 import numpy as np
 
-st.set_page_config(page_title='Text Detection with EasyOCR')
-st.title('Text Detection with EasyOCR')
-st.write('Upload an image and the app will detect the text in it.')
-uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'jpeg', 'png'])
+st.title("Extract Text from Images")
+
+# Allow user to upload an image
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+
 if uploaded_file is not None:
-    image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
-    reader = easyocr.Reader(['en'])
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (1, 5))
-    morph = cv2.morphologyEx(gray, cv2.MORPH_CLOSE, kernel)
-    thresh = cv2.threshold(morph, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
-    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    boxes = []
-    for contour in contours:
-        (x, y, w, h) = cv2.boundingRect(contour)
-        roi = image[y:y + h, x:x + w]
-        results = reader.readtext(roi)
-        if results and results[0]:
-            boxes.append(([x, y, x + w, y + h], results[0][1]))
-    for i, box in enumerate(boxes):
-        st.write(f'Text {i+1}: {box[1]}')
+    # Read the image
+    img = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), cv2.IMREAD_COLOR)
+
+    # Convert the image to grayscale
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Apply thresholding to remove noise
+    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+
+    # Apply dilation to make text regions more visible
+    kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
+    dilated = cv2.dilate(thresh, kernel, iterations=5)
+
+    # Get the contours of the text regions
+    contours, hierarchy = cv2.findContours(dilated, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Iterate through each contour and crop the text region
+    for i, contour in enumerate(contours):
+        # Get the bounding box of the contour
+        x, y, w, h = cv2.boundingRect(contour)
+
+        # Crop the text region from the original image
+        cropped_img = img[y:y+h, x:x+w]
+
+        # Apply OCR to the cropped image
+        text = pytesseract.image_to_string(cropped_img, lang='eng')
+
+        # Display the cropped image and its corresponding text
+        st.image(cropped_img, caption=f'Text {i+1}: {text}', use_column_width=True)
