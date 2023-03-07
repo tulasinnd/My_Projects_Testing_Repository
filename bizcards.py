@@ -1,66 +1,50 @@
 import streamlit as st
 import easyocr
-from PIL import Image
-import numpy as np #Image Processing 
+import cv2
 
-st.title("Business Card Reader")
-
-# Upload the image
-uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
-
-if uploaded_file is not None:
+# Function to get all the bounding boxes of the text in the image
+def get_bounding_boxes(image):
     # Load the image
-    image = Image.open(uploaded_file)
+    img = cv2.imread(image)
+    # Convert the image to grayscale
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    # Apply binary thresholding to the image
+    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
+    # Get the contours of the text in the image
+    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
+    # Get the bounding boxes of the text in the image
+    boxes = []
+    for contour in contours:
+        x, y, w, h = cv2.boundingRect(contour)
+        boxes.append((x, y, x + w, y + h))
+    return boxes
 
-    # Display the image
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+# Function to extract text from each bounding box
+def extract_text(image, boxes):
+    # Load the image
+    img = cv2.imread(image)
+    # Create an EasyOCR reader
+    reader = easyocr.Reader(['en'], gpu=False)
+    # Extract text from each bounding box
+    texts = []
+    for box in boxes:
+        cropped_img = img[box[1]:box[3], box[0]:box[2]]
+        text = reader.readtext(cropped_img)
+        texts.append(text)
+    return texts
 
-    # Extract text from the image using EasyOCR
-    reader = easyocr.Reader(['en'])
-    result = reader.readtext(np.array(image))
+# Main function to run the app
+def main():
+    st.set_page_config(page_title="OCR Bounding Box Extractor", page_icon=":books:")
 
-    # Display the extracted information
-    company_name = ''
-    card_holder_name = ''
-    designation = ''
-    mobile_number = ''
-    email_address = ''
-    website_url = ''
-    area = ''
-    city = ''
-    state = ''
-    pin_code = ''
-    for r in result:
-        if 'company' in r[1].lower():
-            company_name = r[0]
-        elif 'name' in r[1].lower() and 'holder' in r[1].lower():
-            card_holder_name = r[0]
-        elif 'designation' in r[1].lower():
-            designation = r[0]
-        elif 'mobile' in r[1].lower() or 'phone' in r[1].lower():
-            mobile_number = r[0]
-        elif 'email' in r[1].lower():
-            email_address = r[0]
-        elif 'website' in r[1].lower():
-            website_url = r[0]
-        elif 'area' in r[1].lower():
-            area = r[0]
-        elif 'city' in r[1].lower():
-            city = r[0]
-        elif 'state' in r[1].lower():
-            state = r[0]
-        elif 'pin' in r[1].lower() or 'code' in r[1].lower():
-            pin_code = r[0]
+    # Set up the sidebar
+    st.sidebar.title("OCR Bounding Box Extractor")
+    image = st.sidebar.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+    if not image:
+        st.warning("Please upload an image.")
+        return
 
-    st.write("## Extracted Information")
-    st.write(result)
-    st.write(f"**Company Name:** {company_name}")
-    st.write(f"**Card Holder Name:** {card_holder_name}")
-    st.write(f"**Designation:** {designation}")
-    st.write(f"**Mobile Number:** {mobile_number}")
-    st.write(f"**Email Address:** {email_address}")
-    st.write(f"**Website URL:** {website_url}")
-    st.write(f"**Area:** {area}")
-    st.write(f"**City:** {city}")
-    st.write(f"**State:** {state}")
-    st.write(f"**Pin Code:** {pin_code}")
+    # Process the image
+    boxes = get_bounding_boxes(image)
+    text=  extract_text(image, boxes)
+    st.write(text)
