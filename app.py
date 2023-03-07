@@ -9,6 +9,7 @@ st.write('Upload an image and the app will detect the text in it.')
 uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'jpeg', 'png'])
 if uploaded_file is not None:
     image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
+    st.image(image, caption='your image',use_column_width=True)
     reader = easyocr.Reader(['en'])
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
