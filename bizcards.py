@@ -1,9 +1,10 @@
 import streamlit as st
 import easyocr
-import cv2
+
 
 # Function to get all the bounding boxes of the text in the image
 def get_bounding_boxes(image):
+    import cv2
     # Load the image
     img = cv2.imread(image)
     # Convert the image to grayscale
@@ -21,6 +22,7 @@ def get_bounding_boxes(image):
 
 # Function to extract text from each bounding box
 def extract_text(image, boxes):
+    import cv2
     # Load the image
     img = cv2.imread(image)
     # Create an EasyOCR reader
