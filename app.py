@@ -4,7 +4,23 @@ import cv2
 import numpy as np
 
 # Define a function to get the bounding boxes and text from an image
-def get_bounding_boxes(image):
+def get_bounding_boxes():
+        # Set the page title
+    st.set_page_config(page_title='Text Detection with EasyOCR')
+    
+    # Add a title and description to the app
+    st.title('Text Detection with EasyOCR')
+    st.write('Upload an image and the app will detect the text in it.')
+    
+    # Add a file uploader to the app
+    uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'jpeg', 'png'])
+    
+    # If an image is uploaded, display it and the text in it
+    if uploaded_file is not None:
+        # Read the image from the file
+        image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
+        
+    
     # Initialize the EasyOCR reader
     reader = easyocr.Reader(['en'])
     
@@ -31,36 +47,19 @@ def get_bounding_boxes(image):
         
         # Append the bounding box and text to the list of boxes
         st.write(results[0][1])
-    
+        
+#     # Display the image with the bounding boxes and text
+#         st.image(image, channels='BGR', caption='Original Image')
+#         for i, box in enumerate(boxes):
+#             st.write(f'Text {i+1}: {box[1]}')
+#             image = cv2.rectangle(image, (box[0][0], box[0][1]), (box[0][2], box[0][3]), (0, 255, 0), 2)
+#         st.image(image, channels='BGR', caption='Image with Text Detection')
  
 
 # Define the Streamlit app
 def main():
-    # Set the page title
-    st.set_page_config(page_title='Text Detection with EasyOCR')
-    
-    # Add a title and description to the app
-    st.title('Text Detection with EasyOCR')
-    st.write('Upload an image and the app will detect the text in it.')
-    
-    # Add a file uploader to the app
-    uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'jpeg', 'png'])
-    
-    # If an image is uploaded, display it and the text in it
-    if uploaded_file is not None:
-        # Read the image from the file
-        image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
-        
-        # Get the bounding boxes and text for the image
-        get_bounding_boxes(image)
-        
-        # Display the image with the bounding boxes and text
-        st.image(image, channels='BGR', caption='Original Image')
-        for i, box in enumerate(boxes):
-            st.write(f'Text {i+1}: {box[1]}')
-            image = cv2.rectangle(image, (box[0][0], box[0][1]), (box[0][2], box[0][3]), (0, 255, 0), 2)
-        st.image(image, channels='BGR', caption='Image with Text Detection')
-        
+    get_bounding_boxes()
+            
 # Run the app
 if __name__ == '__main__':
     main()
