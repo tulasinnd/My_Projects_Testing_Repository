@@ -36,17 +36,15 @@ def extract_text(image, boxes):
     return texts
 
 # Main function to run the app
-def main():
-    st.set_page_config(page_title="OCR Bounding Box Extractor", page_icon=":books:")
 
-    # Set up the sidebar
-    st.sidebar.title("OCR Bounding Box Extractor")
-    image = st.sidebar.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
-    if not image:
-        st.warning("Please upload an image.")
-        return
+st.set_page_config(page_title="OCR Bounding Box Extractor", page_icon=":books:")
 
-    # Process the image
-    boxes = get_bounding_boxes(image)
-    text=  extract_text(image, boxes)
-    st.write(text)
+# Set up the sidebar
+st.sidebar.title("OCR Bounding Box Extractor")
+image = st.sidebar.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+if not image:
+    st.warning("Please upload an image.")
+# Process the image
+boxes = get_bounding_boxes(image)
+text=  extract_text(image, boxes)
+st.write(text)
