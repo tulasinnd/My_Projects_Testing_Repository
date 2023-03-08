@@ -1,4 +1,12 @@
-pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
+import shutil
+import pytesseract
+
+# Get path to Tesseract executable
+tesseract_path = shutil.which('tesseract')
+
+# Set Tesseract path
+pytesseract.pytesseract.tesseract_cmd = tesseract_path
+
 import cv2
 import pytesseract
 import streamlit as st
