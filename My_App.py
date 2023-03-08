@@ -99,12 +99,13 @@ if image is not None:
         if re.match(r"(?!.*@)(www|.*com$)", string):
             WEB=string.lower()
             WID=i 
-    with col2:        
-        st.write('## :red[EMAIL: ]'+ str(EMAIL)) 
-        st.write('PIN CODE: ', PIN) 
+    with col2: 
+        st.write('#### WEBSITE URL'+ str(WEB))
+        st.write('#### :red[EMAIL: ]'+ str(EMAIL)) 
+        st.write('#### :red[PIN CODE: ]'+ str(PIN)) 
         st.write('PHONE NUMBER(S)', PH)
         st.write('ADDRESS', ADD)
-        st.write('WEBSITE URL', WEB)
+
 
         IDS= [EID,PID,WID]
         IDS.extend(AID)
