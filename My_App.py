@@ -12,7 +12,7 @@ caption = 'OPTICAL CHARACTER RECOGNITION (OCR)'
 st.header(title)
 st.caption(caption)
 st.write(" ")
-col1, col2,col3 , col4= st.columns([2,0.5,3.5,2])
+col1, col2,col3= st.columns([3,0.5,4.5])
 with col1:
     #image uploader
     st.write("## UPLOAD IMAGE")
@@ -35,18 +35,7 @@ if image is not None:
     result_text = [] #empty list for results
     for text in result:
         result_text.append(text[1])
-      
-    with col4:
-        st.write("## ACTIONS")
-        if st.button('UPLOAD'):
-            st.write('WRITE CODE FOR UPLOAD')
-        if st.button('DELETE'):
-            st.write('WRITE CODE ')
-        if st.button('DOWNLOAD'):
-            st.write('WRITE CODE ')
-        if st.button('DISPLAY'):
-            st.write('WRITE CODE')
-    
+          
     PH=[]
     PHID=[]  
     ADD=set()
@@ -135,22 +124,6 @@ if image is not None:
                 st.write('##### '+string)
                 
 
-        if st.button('CARD UPLOAD'):
-            details = {
-                "Website": WEB,
-                "Email": EMAIL,
-                "Pin Code": PIN,
-                "Phone Numbers": PH,
-                "Address": ADD
-            }
 
-            # Create a pandas DataFrame and add the details as a new row
-            df = pd.DataFrame(details, index=[1])
-            df.index.name = 'Index'  # Set the name of the index
-            df.index += 1  # Auto-increment the index starting from 1
-
-            # Display the DataFrame in the Streamlit app
-            st.write("Extracted details:")
-            st.write(df)
 
 
