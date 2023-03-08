@@ -17,7 +17,7 @@ if img_file_buffer is not None:
 
     # Extract text using EasyOCR
     reader = easyocr.Reader(['en'])
-    text = reader.readtext(img)
+    text = reader.readtext(np.array(input_image))
 
     # Extract text using Pytesseract
     # text = pytesseract.image_to_string(img)
