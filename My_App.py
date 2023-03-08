@@ -64,7 +64,8 @@ if image is not None:
             PID=i
                        
         # TO FIND PHONE NUMBER    
-        match = re.search(r'(?:ph|phone|phno)?(?:[+-]?\d*){7,}', string)
+        # match = re.search(r'(?:ph|phone|phno)?(?:[+-]?\d*){7,}', string)
+        match = re.search(r'(?:ph|phone|phno)?\s*(?:[+-]?\d\s*){7,}', string)
         if match and len(re.findall(r'\d', string)) > 7:
             PH.append(match.group())
             PHID.append(i)
