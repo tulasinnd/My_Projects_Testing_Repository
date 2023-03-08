@@ -3,7 +3,7 @@ import cv2
 import numpy as np
 import pytesseract
 from google.cloud import vision
-from google.cloud.vision import types
+from google.cloud.vision_v1.types import Image
 
 # Authenticate with Google Cloud Vision API
 client = vision.ImageAnnotatorClient()
@@ -30,7 +30,7 @@ if uploaded_file is not None:
     dilation = cv2.dilate(thresh, kernel, iterations=5)
 
     # Detect text blocks using Google Cloud Vision API
-    image = types.Image(content=cv2.imencode('.jpg', dilation)[1].tostring())
+    image = Image(content=cv2.imencode('.jpg', dilation)[1].tostring())
     response = client.document_text_detection(image=image)
     blocks = response.full_text_annotation.pages[0].blocks
 
