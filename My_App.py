@@ -70,7 +70,9 @@ if image is not None:
             PHID.append(i)
             
         # TO FIND ADDRESS 
-        keywords = ['road', 'floor', ' st ', 'st,', 'street', ' dt ', 'district', 'near', 'beside', 'opposite', ' at ', ' in ', 'center', 'main road', '2nd', '3rd']
+        keywords = ['road', 'floor', ' st ', 'st,', 'street', ' dt ', 'district',
+                    'near', 'beside', 'opposite', ' at ', ' in ', 'center', 'main road', '2nd', '3rd',
+                   'state','country', 'post','zip']
         # Define the regular expression pattern to match six or seven continuous digits
         digit_pattern = r'\d{6,7}'
         # Check if the string contains any of the keywords or a sequence of six or seven digits
