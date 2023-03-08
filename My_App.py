@@ -102,7 +102,7 @@ if image is not None:
 #             WEB=string.lower()
 #             WID=i
             
-        if re.match(r"^www\..*", string.lower()):
+        if re.match(r"(?!.*@)(www|.*com$)", string):
             WEB=string.lower()
             WID=i
             
