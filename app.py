@@ -1,28 +1,26 @@
-import streamlit as st
+import cv2
 import pytesseract
-import easyocr
-from PIL import Image
+import numpy as np
 
-st.title("Image Text Extraction")
+# Load image
+img = cv2.imread('image.jpg')
 
-# Select image
-img_file_buffer = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+# Convert to grayscale
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
-if img_file_buffer is not None:
-    # Load image
-    img = Image.open(img_file_buffer)
+# Apply thresholding to remove noise
+thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
 
-    # Display image
-    st.image(img, caption="Uploaded Image", use_column_width=True)
+# Find contours in the image
+contours, hierarchy = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
-    # Extract text using EasyOCR
-    reader = easyocr.Reader(['en'])
-    text = reader.readtext(np.array(input_image))
+# Iterate through contours and draw bounding boxes around text blocks
+for cnt in contours:
+    x, y, w, h = cv2.boundingRect(cnt)
+    if w > 50 and h > 50:
+        cv2.rectangle(img, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
-    # Extract text using Pytesseract
-    # text = pytesseract.image_to_string(img)
-
-    # Display extracted text
-    st.write("Extracted Text:")
-    for i in text:
-        st.write(i[1])
+# Display the new image with bounding boxes around text blocks
+cv2.imshow('Image with Text Blocks', img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
