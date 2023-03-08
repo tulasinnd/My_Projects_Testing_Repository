@@ -24,7 +24,7 @@ reader = load_model() #load model
 
 if image is not None:
     input_image = Image.open(image) #read image
-    with col2:
+    with col1:
         st.write("## YOUR IMAGE")
         st.image(input_image) #display image        
     
