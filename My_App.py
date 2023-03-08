@@ -87,12 +87,17 @@ if image is not None:
             if similarity > 50:
                 ADD.add(string)
                 AID.append(i)
+                
+        if re.match(r"(?!.*@).*((www)|(\.com))", string.lower()):
+            WEB=string.lower()
+            WID=i
 
            
     st.write('EMAIL: ', EMAIL, EID) 
     st.write('PIN CODE: ', PIN, PID) 
     st.write('PHONE NUMBER(S)', PH, PHID)
     st.write('ADDRESS', ADD, AID)
+    st.write('WEBSITE URL', WEB, WID)
     
 
         
