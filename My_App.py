@@ -110,6 +110,10 @@ if image is not None:
     st.write('ADDRESS', ADD, AID)
     st.write('WEBSITE URL', WEB, WID)
     
+    IDS= [EID,PID,WID]
+    IDS.extend(AID)
+    IDS.extend(PHID)
+    st.write(IDS)
     
     
 
