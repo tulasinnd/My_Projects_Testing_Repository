@@ -4,6 +4,7 @@ from PIL import Image #Image Processing
 import numpy as np #Image Processing 
 st. set_page_config(layout="wide")
 import re
+import pandas as pd
 
 #title
 title = 'A GAME-CHANGER IN TEXT EXTRACTION FROM IMAGES'
@@ -136,20 +137,20 @@ if image is not None:
 
         if st.button('CARD UPLOAD'):
             details = {
-                "website": WEB,
-                "email": EMAIL,
-                "pin_code": PIN,
-                "phone_numbers": PH,
-                "address": ADD
+                "Website": WEB,
+                "Email": EMAIL,
+                "Pin Code": PIN,
+                "Phone Numbers": PH,
+                "Address": ADD
             }
 
-            # Use the email as the key in the dictionary
-            email_key = EMAIL.strip().lower()
-            details_dict = {email_key: details}
+            # Create a pandas DataFrame and add the details as a new row
+            df = pd.DataFrame(details, index=[1])
+            df.index.name = 'Index'  # Set the name of the index
+            df.index += 1  # Auto-increment the index starting from 1
 
-            # Display the dictionary in the Streamlit app
+            # Display the DataFrame in the Streamlit app
             st.write("Extracted details:")
-            st.write(details_dict)
+            st.write(df)
 
-    
- 
+
