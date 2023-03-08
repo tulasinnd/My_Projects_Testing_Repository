@@ -44,7 +44,7 @@ if image is not None:
     
     PH=[]
     PHID=[]  
-    ADD=[]
+    ADD=set()
     AID=[]
     for i, string in enumerate(result_text):   
         st.write(string.lower())
@@ -69,8 +69,24 @@ if image is not None:
 
         # Check if the string contains any of the keywords or a sequence of six or seven digits
         if any(keyword in string.lower() for keyword in keywords) or re.search(digit_pattern, string):
-            ADD.append(string)
+            ADD.add(string)
             AID.append(i)
+          
+        states = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 
+          'Haryana','Hyderabad', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh',
+            'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 
+            'Rajasthan', 'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal']
+        import Levenshtein
+        def string_similarity(s1, s2):
+            distance = Levenshtein.distance(s1, s2)
+            similarity = 1 - (distance / max(len(s1), len(s2)))
+            return similarity * 100
+        
+        for x in states:
+            similarity = string_similarity(x.lower(), string.lower())
+            if similarity > 50:
+                ADD.add(string)
+                AID.append(i)
 
            
     st.write('EMAIL: ', EMAIL, EID) 
