@@ -62,12 +62,11 @@ if image is not None:
             PH.append(match.group())
             PHID.append(i)
             
+
+            
         keywords = ['road', 'floor', 'st', 'street', 'dt', 'district', 'near', 'beside', 'opposite', 'at', 'in', 'center', 'main road']
 
-        # Convert keywords to lowercase and sort alphabetically
-        keywords = sorted([k.lower() for k in keywords])
-
-        # Create regular expression pattern
+        # Add pattern for continuous 6 or 7 digit numbers
         pattern = r'\b\d{6,7}\b|\b(?:{})\b'.format('|'.join(keywords))
 
         # Search for pattern in string (case-insensitive)
