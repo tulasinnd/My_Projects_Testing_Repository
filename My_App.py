@@ -115,30 +115,23 @@ if image is not None:
         IDS.extend(AID)
         IDS.extend(PHID)
 #         st.write(IDS)
-        oth=''
-#         for i, string in enumerate(result_text):
-#             if i not in IDS:   
-                
-# #                 if len(string) >= 4 and ',' not in string and '.' not in string and 'www.' not in string:
-# #                     if not re.match("^[0-9]{0,3}$", string) and not re.match("^[^a-zA-Z0-9]+$", string):
-                        
-#                 if len(string) >= 4 and ',' not in string and '.' not in string and 'www.' not in string:
-#                     if not re.match("^[0-9]{0,3}$", string) and not re.match("^[^a-zA-Z0-9]+$", string):
-#                         numbers = re.findall('\d+', string)
-#                             if len(numbers) == 0 or all(len(num) < 3 for num in numbers) and not any(num in string for num in ['0','1','2','3','4','5','6','7','8','9']*3):
-#                                 oth=oth+ string+' '
-                                
-                                
+        oth=''                               
+        fin=[]                        
         for i, string in enumerate(result_text):
             if i not in IDS:
                 if len(string) >= 4 and ',' not in string and '.' not in string and 'www.' not in string:
                     if not re.match("^[0-9]{0,3}$", string) and not re.match("^[^a-zA-Z0-9]+$", string):
                         numbers = re.findall('\d+', string)
                         if len(numbers) == 0 or all(len(num) < 3 for num in numbers) and not any(num in string for num in ['0','1','2','3','4','5','6','7','8','9']*3):
-                            oth = oth + string + ' '
+                            fin.append(string)
         st.write('##### :red[CARD HOLDER & COMPANY DETAILS: ] ')  
-        st.write('##### '+oth)
-
-
-
+        if len(fin) % 2 == 0:
+            # If the list has an even number of elements
+            for i in range(0, len(fin), 2):
+                st.write('##### '+fin[i:i+2])
+        else:
+            # If the list has an odd number of elements
+            for i in range(0, len(fin)-1, 2):
+                st.write('##### '+fin[i:i+2])
+            st.write('##### '+[fin[-1]])
 
