@@ -148,6 +148,6 @@ if image is not None:
             my_dict = {CARD_DETAILS: details}
 
             # Print the dictionary to check the output
-print(my_dict)
+            print(my_dict)
     
  
