@@ -117,7 +117,7 @@ if image is not None:
         st.write('#### :red[OTHER DETAILS:] ')
         for i, string in enumerate(result_text):
             if i not in IDS:            
-                st.write('####'+string)
+                st.write('#### '+string)
     
     
 
