@@ -62,16 +62,13 @@ if image is not None:
             PH.append(match.group())
             PHID.append(i)
             
+        keywords = ['road', 'floor', 'st', 'street', 'dt', 'district', 'near', 'beside', 'opposite', 'at', 'in', 'center', 'main road', '2nd', '3rd']
 
-            
-        keywords = ['road', 'floor', 'st', 'street', 'dt', 'district', 'near', 'beside', 'opposite', 'at', 'in', 'center', 'main road']
+        # Define the regular expression pattern to match six or seven continuous digits
+        digit_pattern = r'\d{6,7}'
 
-        # Add pattern for continuous 6 or 7 digit numbers
-        # pattern = r'\b\d{6,7}\b|\b(?:{})\b'.format('|'.join(keywords))
-        pattern = r'\b\d{6,7}\b|\b(?:{})\b'.format('|'.join([re.escape(k) for k in keywords]))
-
-        # Search for pattern in string (case-insensitive)
-        if re.search(pattern, string, flags=re.IGNORECASE):
+        # Check if the string contains any of the keywords or a sequence of six or seven digits
+        if any(keyword in string.lower() for keyword in keywords) or re.search(digit_pattern, string):
             ADD.append(string)
             AID.append(i)
 
