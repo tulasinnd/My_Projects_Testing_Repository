@@ -44,6 +44,11 @@ if image is not None:
     for i in result_text:
         st.write(i.lower())
         
+    str1 = ""   
+    for ele in result_text:    
+        str1 += ele.lower()+" "
+    st.write(str1)
+        
             
 #     import en_core_web_sm
 #     nlp = en_core_web_sm.load()
