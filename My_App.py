@@ -7,7 +7,7 @@ import re
 import pandas as pd
 
 #title
-st.title('A GAME-CHANGER IN TEXT EXTRACTION FROM IMAGES (OCR)')
+st.title("UNLOCKING TEXT FROM IMAGES: OCR FOR EFFICIENT DATA EXTRACTION") 
 st.write(" ")
 col1, col2,col3= st.columns([3,0.5,4.5])
 with col1:
