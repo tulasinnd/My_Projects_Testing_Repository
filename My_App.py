@@ -53,9 +53,16 @@ if image is not None:
             PIN=match.group()
             PID=result_text.index(i)
             
+        match = re.search(r'[-+]?\d{8,}',  i.lower())
+        if match:
+            PH=[]
+            PID=[]
+            PH.append(match.group())
+            PHID.append(result_text.index(i))    
            
     st.write('EMAIL: ', EMAIL, EIN) 
     st.write('PIN CODE: ', PIN, PID) 
+    st.write('PHONE NUMBER(S)', PH, PHID)
     
 
         
