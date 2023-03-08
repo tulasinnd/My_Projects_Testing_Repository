@@ -60,7 +60,7 @@ if image is not None:
             PH.append(match.group())
             PHID.append(i)    
            
-    st.write('EMAIL: ', EMAIL, EIN) 
+    st.write('EMAIL: ', EMAIL, EID) 
     st.write('PIN CODE: ', PIN, PID) 
     st.write('PHONE NUMBER(S)', PH, PHID)
     
