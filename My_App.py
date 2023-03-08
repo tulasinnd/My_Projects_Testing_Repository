@@ -46,8 +46,15 @@ if image is not None:
     PHID=[]  
     ADD=set()
     AID=[]
+    EMAIL=''
+    EID=''
+    PIN=''
+    PID=''
+    WEB=''
+    WID=''
+    
     for i, string in enumerate(result_text):   
-        st.write(string.lower())
+        st.write(string.lower())     
         
         # TO FIND EMAIL
         if re.search(r'@', string.lower()):
@@ -92,27 +99,18 @@ if image is not None:
                 ADD.add(string)
                 AID.append(i)
                 
-        # WEBSITE URL       
-#         if re.match(r"(?!.*@).*((www\.)|(\.com))", string):
-#             WEB=string.lower()
-#             WID=i
-#         else:
-#             string = re.sub(r"(?!www\.)www", "www.", string)
-#             string = re.sub(r"(\.com)(?!\.)", ".com.", string)
-#             WEB=string.lower()
-#             WID=i
-            
+        # WEBSITE URL          
         if re.match(r"(?!.*@)(www|.*com$)", string):
             WEB=string.lower()
-            WID=i
-            
-
-           
+            WID=i       
+ 
     st.write('EMAIL: ', EMAIL, EID) 
     st.write('PIN CODE: ', PIN, PID) 
     st.write('PHONE NUMBER(S)', PH, PHID)
     st.write('ADDRESS', ADD, AID)
     st.write('WEBSITE URL', WEB, WID)
+    
+    
     
 
         
