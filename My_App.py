@@ -59,10 +59,25 @@ if image is not None:
         if match and len(re.findall(r'\d', string)) > 7:
             PH.append(match.group())
             PHID.append(i)
+            
+        keywords = ['road', 'floor', 'st', 'street', 'dt', 'district', 'near', 'beside', 'opposite', 'at', 'in', 'center', 'main road']
+
+        # Convert keywords to lowercase and sort alphabetically
+        keywords = sorted([k.lower() for k in keywords])
+
+        # Create regular expression pattern
+        pattern = r'\b(?:{})\b'.format('|'.join(keywords))
+
+        # Search for pattern in string (case-insensitive)
+        if re.search(pattern, string, flags=re.IGNORECASE):
+            ADD=string
+            AID=i
+
            
     st.write('EMAIL: ', EMAIL, EID) 
     st.write('PIN CODE: ', PIN, PID) 
     st.write('PHONE NUMBER(S)', PH, PHID)
+    st.write('ADDRESS', ADD, AID)
     
 
         
