@@ -38,6 +38,15 @@ if uploaded_file is not None:
 
     # Apply OCR to each text block and print the recognized text and text block image
     for i, block in enumerate(text_blocks):
-        text = pytesseract.image_to_string(block, config=config)
+
+
+
+        # Convert the image to a NumPy array
+        numpy_array = np.array(block)
+
+        # Convert the image to a PIL image
+        pil_image = Image.fromarray(numpy_array)
+
+        text = pytesseract.image_to_string(pil_image, config=config)
         st.write(f"Text Block {i+1}: {text}")
         st.image(block, caption=f"Text Block {i+1} Image", use_column_width=True)
