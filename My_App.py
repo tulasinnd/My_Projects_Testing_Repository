@@ -103,7 +103,7 @@ if image is not None:
         st.write('#### :red[WEBSITE URL ] '+ str(WEB))
         st.write('#### :red[EMAIL: ] '+ str(EMAIL)) 
         st.write('#### :red[PIN CODE: ] '+ str(PIN)) 
-        ph_str = ' '.join([str(elem) for elem in PIN])
+        ph_str = ' '.join([str(elem) for elem in PH])
         st.write('#### :red[PHONE NUMBER(S)] '+ph_str)
         add_str = ' '.join([str(elem) for elem in ADD])
         st.write('#### :red[ADDRESS] ', add_str)
@@ -114,10 +114,10 @@ if image is not None:
         IDS.extend(PHID)
 #         st.write(IDS)
 
-        st.write('OTHER DETAILS')
+        st.write('#### :red[OTHER DETAILS:] ')
         for i, string in enumerate(result_text):
             if i not in IDS:            
-                st.write(string)
+                st.write('####'+string)
     
     
 
