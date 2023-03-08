@@ -1,10 +1,9 @@
+pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 import cv2
 import pytesseract
 import streamlit as st
 from PIL import Image
 import numpy as np
-pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
-
 
 st.set_page_config(page_title="Text Recognition", page_icon=":pencil:", layout="wide")
 
