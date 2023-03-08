@@ -1,25 +1,28 @@
 import streamlit as st
+import pytesseract
 import easyocr
-import cv2
-import numpy as np
+from PIL import Image
 
-st.set_page_config(page_title='Text Detection with EasyOCR')
-st.title('Text Detection with EasyOCR')
-st.write('Upload an image and the app will detect the text in it.')
-uploaded_file = st.file_uploader('Choose an image...', type=['jpg', 'jpeg', 'png'])
-if uploaded_file is not None:
-    image = cv2.imdecode(np.fromstring(uploaded_file.read(), np.uint8), 1)
-    st.image(image, caption='your image',use_column_width=True)
+st.title("Image Text Extraction")
+
+# Select image
+img_file_buffer = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
+
+if img_file_buffer is not None:
+    # Load image
+    img = Image.open(img_file_buffer)
+
+    # Display image
+    st.image(img, caption="Uploaded Image", use_column_width=True)
+
+    # Extract text using EasyOCR
     reader = easyocr.Reader(['en'])
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)[1]
-    contours, hierarchy = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-    boxes = []
-    for contour in contours:
-        (x, y, w, h) = cv2.boundingRect(contour)
-        roi = image[y:y + h, x:x + w]
-        results = reader.readtext(roi)
-        if results and results[0]:
-            boxes.append(([x, y, x + w, y + h], results[0][1]))
-    for i, box in enumerate(boxes):
-        st.write(f'Text {i+1}: {box[1]}')
+    text = reader.readtext(img)
+
+    # Extract text using Pytesseract
+    # text = pytesseract.image_to_string(img)
+
+    # Display extracted text
+    st.write("Extracted Text:")
+    for i in text:
+        st.write(i[1])
