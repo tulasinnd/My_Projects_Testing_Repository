@@ -6,8 +6,8 @@ st. set_page_config(layout="wide")
 import re
 
 #title
-title = '# A Game-Changer in Text Extraction from Images'
-caption = 'Optical Character Recognition (OCR)'
+title = 'A GAME-CHANGER IN TEXT EXTRACTION FROM IMAGES'
+caption = 'OPTICAL CHARACTER RECOGNITION (OCR)'
 st.header(title)
 st.caption(caption)
 st.write(" ")
@@ -36,9 +36,15 @@ if image is not None:
         result_text.append(text[1])
       
     with col4:
-        st.write("## UPLOAD OR DELETE")
+        st.write("## ACTIONS")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
+        if st.button('DELETE'):
+            st.write('WRITE CODE ')
+        if st.button('DOWNLOAD'):
+            st.write('WRITE CODE ')
+        if st.button('DISPLAY'):
+            st.write('WRITE CODE')
     
     PH=[]
     PHID=[]  
