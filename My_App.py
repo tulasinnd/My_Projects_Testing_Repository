@@ -9,7 +9,7 @@ import re
 st.title("EXTRACTING TEXT FROM IMAGES USING OCR")
 st.write(" ")
 st.write(" ")
-col1, col2,col3,col4 = st.columns([2,2,2,2])
+col1, col2,col3 = st.columns([2,4,2])
 with col1:
     #image uploader
     st.write("## UPLOAD IMAGE")
@@ -25,19 +25,15 @@ reader = load_model() #load model
 if image is not None:
     input_image = Image.open(image) #read image
     with col1:
-        st.write("## YOUR IMAGE")
+        #st.write("## YOUR IMAGE")
         st.image(input_image) #display image        
     
     result = reader.readtext(np.array(input_image))
     result_text = [] #empty list for results
     for text in result:
         result_text.append(text[1])
-        
+      
     with col3:
-        st.write("## EXTRACTED TEXT")
-        for i in result_text:
-            st.write(i)
-    with col4:
         st.write("## UPLOAD OR DELETE")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
@@ -103,22 +99,22 @@ if image is not None:
         if re.match(r"(?!.*@)(www|.*com$)", string):
             WEB=string.lower()
             WID=i       
- 
-    st.write('EMAIL: ', EMAIL, EID) 
-    st.write('PIN CODE: ', PIN, PID) 
-    st.write('PHONE NUMBER(S)', PH, PHID)
-    st.write('ADDRESS', ADD, AID)
-    st.write('WEBSITE URL', WEB, WID)
-    
-    IDS= [EID,PID,WID]
-    IDS.extend(AID)
-    IDS.extend(PHID)
-    st.write(IDS)
-    
-    st.write('OTHER DETAILS')
-    for i, string in enumerate(result_text):
-        if i not in IDS:            
-            st.write(string)
+     with col2:
+        st.write('EMAIL: ', EMAIL, EID) 
+        st.write('PIN CODE: ', PIN, PID) 
+        st.write('PHONE NUMBER(S)', PH, PHID)
+        st.write('ADDRESS', ADD, AID)
+        st.write('WEBSITE URL', WEB, WID)
+
+        IDS= [EID,PID,WID]
+        IDS.extend(AID)
+        IDS.extend(PHID)
+        st.write(IDS)
+
+        st.write('OTHER DETAILS')
+        for i, string in enumerate(result_text):
+            if i not in IDS:            
+                st.write(string)
     
     
 
