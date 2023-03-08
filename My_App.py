@@ -66,12 +66,12 @@ if image is not None:
         keywords = sorted([k.lower() for k in keywords])
 
         # Create regular expression pattern
-        pattern = r'\b(?:{})\b'.format('|'.join(keywords))
+        pattern = r'\b\d{6,7}\b|\b(?:{})\b'.format('|'.join(keywords))
 
         # Search for pattern in string (case-insensitive)
         if re.search(pattern, string, flags=re.IGNORECASE):
-            ADD=string
-            AID=i
+            ADD.append(string)
+            AID.append(i)
 
            
     st.write('EMAIL: ', EMAIL, EID) 
