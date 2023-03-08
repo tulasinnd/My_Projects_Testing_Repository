@@ -49,7 +49,6 @@ if image is not None:
             EIN=result_text.index(i)
 
         if re.search(r'\d{6,7}', i.lower()):
-            print(string)
             PIN=i.lower()
             PID=result_text.index(i)
             
