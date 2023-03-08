@@ -41,10 +41,10 @@ if image is not None:
         st.write("## UPLOAD OR DELETE")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
+    
     PH=[]
     PID=[]        
-    for i, string in enumerate(result_text):
-        
+    for i, string in enumerate(result_text):   
         st.write(string.lower())
         if re.search(r'@', string.lower()):
             EMAIL=string.lower()
