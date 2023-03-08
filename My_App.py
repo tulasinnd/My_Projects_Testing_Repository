@@ -9,7 +9,7 @@ import re
 st.title("EXTRACTING TEXT FROM IMAGES USING OCR")
 st.write(" ")
 st.write(" ")
-col1, col2,col3 = st.columns([2,4,2])
+col1, col2,col3 , col4= st.columns([2,0.5,3.5,2])
 with col1:
     #image uploader
     st.write("## UPLOAD IMAGE")
@@ -33,7 +33,7 @@ if image is not None:
     for text in result:
         result_text.append(text[1])
       
-    with col3:
+    with col4:
         st.write("## UPLOAD OR DELETE")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
@@ -99,7 +99,7 @@ if image is not None:
         if re.match(r"(?!.*@)(www|.*com$)", string):
             WEB=string.lower()
             WID=i 
-    with col2: 
+    with col3: 
         st.write('#### :red[WEBSITE URL ] '+ str(WEB))
         st.write('#### :red[EMAIL: ] '+ str(EMAIL)) 
         st.write('#### :red[PIN CODE: ] '+ str(PIN)) 
