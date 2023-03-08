@@ -47,9 +47,15 @@ if image is not None:
         if re.search(r'@', i.lower()):
             EMAIL=i.lower()
             EIN=result_text.index(i)
+
+        if re.search(r'\d{6,7}', i.lower()):
+            print(string)
+            PIN=i.lower()
+            PID=result_text.index(i)
             
            
     st.write('EMAIL: ', EMAIL, EIN) 
+    st.write('PIN CODE: ', PIN, PID) 
     
 
         
