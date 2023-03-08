@@ -6,9 +6,9 @@ st. set_page_config(layout="wide")
 import re
 
 #title
-text = 'A Game-Changer in Text Extraction from Images'
+text = '# A Game-Changer in Text Extraction from Images'
 caption = 'Optical Character Recognition (OCR)'
-st.title(text, caption=caption)
+st.write(text, caption=caption)
 st.write(" ")
 col1, col2,col3 , col4= st.columns([2,0.5,3.5,2])
 with col1:
