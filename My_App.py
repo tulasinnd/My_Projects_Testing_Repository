@@ -100,11 +100,13 @@ if image is not None:
             WEB=string.lower()
             WID=i 
     with col2: 
-        st.write('#### WEBSITE URL'+ str(WEB))
-        st.write('#### :red[EMAIL: ]'+ str(EMAIL)) 
-        st.write('#### :red[PIN CODE: ]'+ str(PIN)) 
-        st.write('PHONE NUMBER(S)', PH)
-        st.write('ADDRESS', ADD)
+        st.write('#### :red[WEBSITE URL ] '+ str(WEB))
+        st.write('#### :red[EMAIL: ] '+ str(EMAIL)) 
+        st.write('#### :red[PIN CODE: ] '+ str(PIN)) 
+        ph_str = ' '.join([str(elem) for elem in PIN])
+        st.write('#### :red[PHONE NUMBER(S)] '+ph_str)
+        add_str = ' '.join([str(elem) for elem in ADD])
+        st.write('#### :red[ADDRESS] ', add_str)
 
 
         IDS= [EID,PID,WID]
