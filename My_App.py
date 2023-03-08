@@ -125,7 +125,7 @@ if image is not None:
                         if len(numbers) == 0 or all(len(num) < 3 for num in numbers) and not any(num in string for num in ['0','1','2','3','4','5','6','7','8','9']*3):
                             fin.append(string)
         st.write('##### :red[CARD HOLDER & COMPANY DETAILS: ] ',fin)  
-*
+
 #         if len(fin) % 2 == 0:
 #             # If the list has an even number of elements
 #             for i in range(0, len(fin), 2):
