@@ -134,7 +134,7 @@ if image is not None:
                 st.write('##### '+string)
                 
 
-        if st.button('UPLOAD'):
+        if st.button('CARD UPLOAD'):
             st.write('UPLOADING')                
             details = {
                 'Website': WEB,
