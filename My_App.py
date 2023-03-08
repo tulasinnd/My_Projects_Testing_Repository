@@ -40,65 +40,64 @@ if image is not None:
         st.write("## UPLOAD OR DELETE")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
-    import en_core_web_sm
-    nlp = en_core_web_sm.load()
-    import spacy
             
-    str1 = ""
-   
-    for ele in result_text:    
-        str1 += ele+" "
-
-    doc= nlp(str1)
-
-    for ent in doc.ents:
-        st.write(ent.text,'| ', ent.label_, '| ', spacy.explain(ent.label_))
+    for i in result_text:
+        st.write(i.lower())
         
-    import re
+            
+#     import en_core_web_sm
+#     nlp = en_core_web_sm.load()
+#     import spacy
+            
+#     str1 = ""   
+#     for ele in result_text:    
+#         str1 += ele+" "
+# #     doc= nlp(str1)
+# #     for ent in doc.ents:
+# #         st.write(ent.text,'| ', ent.label_, '| ', spacy.explain(ent.label_))
+        
+#     import re
 
-    # Regular expression for email addresses
-    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+#     # Regular expression for email addresses
+#     email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+#     # Regular expression for phone numbers
+#     phone_pattern = r'\b\d{3}[-.]?\d{3}[-.]?\d{4}\b'
+#     # Regular expression for pin codes
+#     pincode_pattern = r'\b\d{6}\b'
 
-    # Regular expression for phone numbers
-    phone_pattern = r'\b\d{3}[-.]?\d{3}[-.]?\d{4}\b'
+#     # Find all email addresses, phone numbers, website URLs, and pin codes in the string using regex
+#     emails = re.findall(email_pattern, str1)
+#     phone_numbers = re.findall(phone_pattern, str1)
+#     pincodes = re.findall(pincode_pattern, str1)
 
-
-    # Regular expression for pin codes
-    pincode_pattern = r'\b\d{6}\b'
-
-    # Find all email addresses, phone numbers, website URLs, and pin codes in the string using regex
-    emails = re.findall(email_pattern, str1)
-    phone_numbers = re.findall(phone_pattern, str1)
-    pincodes = re.findall(pincode_pattern, str1)
-
-    # Print the results
-    st.write("DETAILS")
-    st.write("Email addresses:", emails)
-    st.write("Phone numbers:", phone_numbers)
-#     st.write("Website URLs:", urls)
-    st.write("Pin codes:", pincodes)
+#     # Print the results
+#     st.write("DETAILS")
+#     st.write("Email addresses:", emails)
+#     st.write("Phone numbers:", phone_numbers)
+# #     st.write("Website URLs:", urls)
+#     st.write("Pin codes:", pincodes)
     
 
-    # Find all words that start with "www" (case-insensitive) and do not contain "@"
-    matches = re.findall(r"\bwww(?!\S*@)\S*\b", str1, re.IGNORECASE)
+#     # Find all words that start with "www" (case-insensitive) and do not contain "@"
+#     matches = re.findall(r"\bwww(?!\S*@)\S*\b", str1, re.IGNORECASE)
 
-    # Process each match
-    for match in matches:
-        # Remove extra spaces
-        match = " ".join(match.split())
+#     # Process each match
+#     for match in matches:
+#         # Remove extra spaces
+#         match = " ".join(match.split())
 
-        # Convert to lowercase
-        match = match.lower()
+#         # Convert to lowercase
+#         match = match.lower()
 
-        # Add "." after "www" if not present
-        if not match.startswith("www."):
-            match = "www." + match[len("www"):]
+#         # Add "." after "www" if not present
+#         if not match.startswith("www."):
+#             match = "www." + match[len("www"):]
 
-        # Add "." before "com" if not present
-        if not match.endswith(".com"):
-            match = match[:len(match) - len(".com")] + ".com"
+#         # Add "." before "com" if not present
+#         if not match.endswith(".com"):
+#             match = match[:len(match) - len(".com")] + ".com"
 
-        st.write(match)
+#         st.write(match)
 
 
 
