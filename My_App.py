@@ -41,24 +41,24 @@ if image is not None:
         st.write("## UPLOAD OR DELETE")
         if st.button('UPLOAD'):
             st.write('WRITE CODE FOR UPLOAD')
-            
+    PH=[]
+    PID=[]        
     for i in result_text:
-        st.write(i.lower())
-        if re.search(r'@', i.lower()):
-            EMAIL=i.lower()
-            EIN=result_text.index(i)
+    for i, string in enumerate(result_text):
+        st.write(string.lower())
+        if re.search(r'@', string.lower()):
+            EMAIL=string.lower()
+            EID=i
 
-        match = re.search(r'\d{6,7}', i.lower())
+        match = re.search(r'\d{6,7}', string.lower())
         if match:
             PIN=match.group()
-            PID=result_text.index(i)
+            PID=i
             
-        match = re.search(r'[-+]?\d{8,}',  i.lower())
+        match = re.search(r'[-+]?\d{8,}',  string.lower())
         if match:
-            PH=[]
-            PID=[]
             PH.append(match.group())
-            PHID.append(result_text.index(i))    
+            PHID.append(i)    
            
     st.write('EMAIL: ', EMAIL, EIN) 
     st.write('PIN CODE: ', PIN, PID) 
