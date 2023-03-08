@@ -115,6 +115,11 @@ if image is not None:
     IDS.extend(PHID)
     st.write(IDS)
     
+    st.write('OTHER DETAILS')
+    for i, string in enumerate(result_text):
+        if i not in IDS:            
+            st.write(string)
+    
     
 
         
