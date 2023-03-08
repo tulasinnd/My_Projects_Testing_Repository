@@ -7,7 +7,7 @@ import re
 
 #title
 st.title('Optical Character Recognition (OCR)')
-st.title("A Game-Changer in Text Extraction from Images")
+st.caption("A Game-Changer in Text Extraction from Images")
 st.write(" ")
 st.write(" ")
 col1, col2,col3 , col4= st.columns([2,0.5,3.5,2])
