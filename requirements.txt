@@ -7,3 +7,5 @@ en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_
 opencv-python==4.5.5.64
 pytesseract
 tesseract-ocr
+shutil
+
