@@ -53,7 +53,7 @@ if image is not None:
             EID=i
         
         # TO FIND PINCODE
-        match = re.search(r'\d{5,6,7}', string.lower())
+        match = re.search(r'\d{6,7}', string.lower())
         if match:
             PIN=match.group()
             PID=i
@@ -71,7 +71,7 @@ if image is not None:
                    'state','country', 'post','zip','city','zone','mandal','town','rural',
                     'circle','next to','across from','area','building','towers','village']
         # Define the regular expression pattern to match six or seven continuous digits
-        digit_pattern = r'\d{5,6,7}'
+        digit_pattern = r'\d{6,7}'
         # Check if the string contains any of the keywords or a sequence of six or seven digits
         if any(keyword in string.lower() for keyword in keywords) or re.search(digit_pattern, string):
             ADD.add(string)
