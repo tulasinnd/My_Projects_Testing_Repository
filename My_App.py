@@ -135,19 +135,21 @@ if image is not None:
                 
 
         if st.button('CARD UPLOAD'):
-            st.write('UPLOADING')                
             details = {
-                'Website': WEB,
-                'email':EMAIL,
-                'Phone Number': PH,
-                'Address': ADD,
-                'Pin Code': PIN
+                "website": WEB,
+                "email": EMAIL,
+                "pin_code": PIN,
+                "phone_numbers": PH,
+                "address": ADD
             }
 
-            # Use the email as the key and add the details to the dictionary
-            my_dict = {CARD_DETAILS: details}
+            # Use the email as the key in the dictionary
+            email_key = EMAIL.strip().lower()
+            details_dict = {email_key: details}
 
-            # Print the dictionary to check the output
-            print(my_dict)
+            # Display the dictionary in the Streamlit app
+            st.write("Extracted details:")
+            st.write(details_dict)
+
     
  
