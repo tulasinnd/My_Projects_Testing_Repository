@@ -117,10 +117,16 @@ if image is not None:
 #         st.write(IDS)
         oth=''
         for i, string in enumerate(result_text):
-            if i not in IDS:        
+            if i not in IDS:   
+                
+#                 if len(string) >= 4 and ',' not in string and '.' not in string and 'www.' not in string:
+#                     if not re.match("^[0-9]{0,3}$", string) and not re.match("^[^a-zA-Z0-9]+$", string):
+                        
                 if len(string) >= 4 and ',' not in string and '.' not in string and 'www.' not in string:
                     if not re.match("^[0-9]{0,3}$", string) and not re.match("^[^a-zA-Z0-9]+$", string):
-                        oth=oth+ string+' '
+                        numbers = re.findall('\d+', string)
+                            if len(numbers) == 0 or all(len(num) < 3 for num in numbers) and not any(num in string for num in ['0','1','2','3','4','5','6','7','8','9']*3):
+                                oth=oth+ string+' '
         st.write('##### :red[OTHER DETAILS: ] '+oth)     
 
 
