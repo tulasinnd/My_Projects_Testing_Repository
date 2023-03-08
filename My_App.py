@@ -67,7 +67,8 @@ if image is not None:
         keywords = ['road', 'floor', 'st', 'street', 'dt', 'district', 'near', 'beside', 'opposite', 'at', 'in', 'center', 'main road']
 
         # Add pattern for continuous 6 or 7 digit numbers
-        pattern = r'\b\d{6,7}\b|\b(?:{})\b'.format('|'.join(keywords))
+        # pattern = r'\b\d{6,7}\b|\b(?:{})\b'.format('|'.join(keywords))
+        pattern = r'\b\d{6,7}\b|\b(?:{})\b'.format('|'.join([re.escape(k) for k in keywords]))
 
         # Search for pattern in string (case-insensitive)
         if re.search(pattern, string, flags=re.IGNORECASE):
