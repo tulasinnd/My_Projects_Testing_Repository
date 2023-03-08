@@ -7,8 +7,7 @@ import re
 import pandas as pd
 
 #title
-title = 'A GAME-CHANGER IN TEXT EXTRACTION FROM IMAGES'
-caption = 'OPTICAL CHARACTER RECOGNITION (OCR)'
+st.title('A GAME-CHANGER IN TEXT EXTRACTION FROM IMAGES (OCR)')
 st.header(title)
 st.caption(caption)
 st.write(" ")
