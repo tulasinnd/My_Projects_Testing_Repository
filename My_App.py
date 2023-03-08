@@ -48,8 +48,9 @@ if image is not None:
             EMAIL=i.lower()
             EIN=result_text.index(i)
 
-        if re.search(r'\d{6,7}', i.lower()):
-            PIN=i.lower()
+        match = re.search(r'\d{6,7}', i.lower())
+        if match:
+            PIN=match.group()
             PID=result_text.index(i)
             
            
