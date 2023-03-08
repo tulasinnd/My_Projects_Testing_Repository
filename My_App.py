@@ -6,13 +6,10 @@ st. set_page_config(layout="wide")
 import re
 
 #title
-title = 'My Streamlit App'
-caption = 'This is a caption for the title'
+title = '# A Game-Changer in Text Extraction from Images'
+caption = 'Optical Character Recognition (OCR)'
 st.header(title)
 st.caption(caption)
-text = '# A Game-Changer in Text Extraction from Images'
-caption = 'Optical Character Recognition (OCR)'
-st.write(text, caption=caption)
 st.write(" ")
 col1, col2,col3 , col4= st.columns([2,0.5,3.5,2])
 with col1:
