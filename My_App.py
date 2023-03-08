@@ -3,6 +3,7 @@ import streamlit as st  #Web App
 from PIL import Image #Image Processing
 import numpy as np #Image Processing 
 st. set_page_config(layout="wide")
+import re
 
 #title
 st.title("EXTRACTING TEXT FROM IMAGES USING OCR")
@@ -43,11 +44,21 @@ if image is not None:
             
     for i in result_text:
         st.write(i.lower())
+        if re.search(r'@', i.lower()):
+            st.write("EMAIL: ", i.lower())
+           
         
     str1 = ""   
     for ele in result_text:    
         str1 += ele.lower()+" "
     st.write(str1)
+    
+    # Regular expression for email addresses
+    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    # Regular expression for phone numbers
+    phone_pattern = r'\b\d{3}[-.]?\d{3}[-.]?\d{4}\b'
+    # Regular expression for pin codes
+    pincode_pattern = r'\b\d{6}\b'
         
             
 #     import en_core_web_sm
