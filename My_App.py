@@ -102,24 +102,24 @@ if image is not None:
             WID=i 
     with col3: 
         st.write("## EXTRACTED TEXT")
-        st.write('##### :red[WEBSITE URL ] '+ str(WEB))
+        st.write('##### :red[WEBSITE URL: ] '+ str(WEB))
         st.write('##### :red[EMAIL: ] '+ str(EMAIL)) 
         st.write('##### :red[PIN CODE: ] '+ str(PIN)) 
         ph_str = ' '.join([str(elem) for elem in PH])
-        st.write('##### :red[PHONE NUMBER(S)] '+ph_str)
+        st.write('##### :red[PHONE NUMBER(S): ] '+ph_str)
         add_str = ' '.join([str(elem) for elem in ADD])
-        st.write('##### :red[ADDRESS] ', add_str)
+        st.write('##### :red[ADDRESS: ] ', add_str)
 
         IDS= [EID,PID,WID]
         IDS.extend(AID)
         IDS.extend(PHID)
 #         st.write(IDS)
-
-        st.write('##### :red[OTHER DETAILS:] ')
+        oth=''
         for i, string in enumerate(result_text):
-            if i not in IDS:            
-                st.write('##### '+string)
-                
+            if i not in IDS:
+                if len(string) >= 4 and ',' not in string and '.' not in string and 'www.' not in string:                    
+                    oth=oth+ string+' '
+        st.write('##### :red[OTHER DETAILS: ] '+oth)     
 
 
 
