@@ -55,7 +55,7 @@ if image is not None:
             PIN=match.group()
             PID=i
             
-        match = re.search(r'[-+]?\d{8,}',  string.lower())
+        match = re.search(r'[\+\-]?\d{7,}', string.lower())
         if match:
             PH.append(match.group())
             PHID.append(i)    
