@@ -48,30 +48,34 @@ if image is not None:
     AID=[]
     for i, string in enumerate(result_text):   
         st.write(string.lower())
+        
+        # TO FIND EMAIL
         if re.search(r'@', string.lower()):
             EMAIL=string.lower()
             EID=i
-
+        
+        # TO FIND PINCODE
         match = re.search(r'\d{6,7}', string.lower())
         if match:
             PIN=match.group()
             PID=i
                        
+        # TO FIND PHONE NUMBER    
         match = re.search(r'(?:ph|phone|phno)?(?:[+-]?\d*){7,}', string)
         if match and len(re.findall(r'\d', string)) > 7:
             PH.append(match.group())
             PHID.append(i)
             
+        # TO FIND ADDRESS 
         keywords = ['road', 'floor', ' st ', 'st,', 'street', ' dt ', 'district', 'near', 'beside', 'opposite', ' at ', ' in ', 'center', 'main road', '2nd', '3rd']
-
         # Define the regular expression pattern to match six or seven continuous digits
         digit_pattern = r'\d{6,7}'
-
         # Check if the string contains any of the keywords or a sequence of six or seven digits
         if any(keyword in string.lower() for keyword in keywords) or re.search(digit_pattern, string):
             ADD.add(string)
             AID.append(i)
-          
+            
+        # TO FIND STATE (USING SIMILARITY SCORE)
         states = ['Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 
           'Haryana','Hyderabad', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh',
             'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 
@@ -88,7 +92,13 @@ if image is not None:
                 ADD.add(string)
                 AID.append(i)
                 
-        if re.match(r"(?!.*@).*((www)|(\.com))", string.lower()):
+        # WEBSITE URL       
+        if re.match(r"(?!.*@).*((www\.)|(\.com))", string):
+            WEB=string.lower()
+            WID=i
+        else:
+            string = re.sub(r"(?!www\.)www", "www.", string)
+            string = re.sub(r"(\.com)(?!\.)", ".com.", string)
             WEB=string.lower()
             WID=i
 
