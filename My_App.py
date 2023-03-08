@@ -43,7 +43,9 @@ if image is not None:
             st.write('WRITE CODE FOR UPLOAD')
     
     PH=[]
-    PHID=[]        
+    PHID=[]  
+    ADD=[]
+    AID=[]
     for i, string in enumerate(result_text):   
         st.write(string.lower())
         if re.search(r'@', string.lower()):
