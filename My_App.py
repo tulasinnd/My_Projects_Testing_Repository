@@ -50,7 +50,7 @@ if image is not None:
     WID=''
     
     for i, string in enumerate(result_text):   
-        st.write(string.lower())     
+        #st.write(string.lower())     
         
         # TO FIND EMAIL
         if re.search(r'@', string.lower()):
@@ -100,13 +100,14 @@ if image is not None:
             WEB=string.lower()
             WID=i 
     with col3: 
-        st.write('#### :red[WEBSITE URL ] '+ str(WEB))
-        st.write('#### :red[EMAIL: ] '+ str(EMAIL)) 
-        st.write('#### :red[PIN CODE: ] '+ str(PIN)) 
+        st.write("## EXTRACTED TEXT")
+        st.write('##### :red[WEBSITE URL ] '+ str(WEB))
+        st.write('##### :red[EMAIL: ] '+ str(EMAIL)) 
+        st.write('##### :red[PIN CODE: ] '+ str(PIN)) 
         ph_str = ' '.join([str(elem) for elem in PH])
-        st.write('#### :red[PHONE NUMBER(S)] '+ph_str)
+        st.write('##### :red[PHONE NUMBER(S)] '+ph_str)
         add_str = ' '.join([str(elem) for elem in ADD])
-        st.write('#### :red[ADDRESS] ', add_str)
+        st.write('##### :red[ADDRESS] ', add_str)
 
 
         IDS= [EID,PID,WID]
