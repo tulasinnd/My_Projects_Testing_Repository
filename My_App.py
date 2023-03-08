@@ -54,12 +54,10 @@ if image is not None:
         if match:
             PIN=match.group()
             PID=i
-            
-        digit_count = len(re.findall(r'\d', string))
-        if digit_count > 8:
-            match = re.search(r'[\+\-]?\d', string)
-        if match:
-            PH.append(string)
+                       
+        match = re.search(r'(?:ph|phone|phno)?(?:[+-]?\d*){7,}', string)
+        if match and len(re.findall(r'\d', string)) > 7:
+            PH.append(match.group())
             PHID.append(i)
            
     st.write('EMAIL: ', EMAIL, EID) 
