@@ -98,8 +98,9 @@ if image is not None:
         # WEBSITE URL          
         if re.match(r"(?!.*@)(www|.*com$)", string):
             WEB=string.lower()
-            WID=i       
-     with col2:
+            WID=i 
+    with col2:
+        
         st.write('EMAIL: ', EMAIL, EID) 
         st.write('PIN CODE: ', PIN, PID) 
         st.write('PHONE NUMBER(S)', PH, PHID)
