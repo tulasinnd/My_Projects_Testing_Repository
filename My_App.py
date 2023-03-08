@@ -6,6 +6,10 @@ st. set_page_config(layout="wide")
 import re
 
 #title
+title = 'My Streamlit App'
+caption = 'This is a caption for the title'
+st.header(title)
+st.caption(caption)
 text = '# A Game-Changer in Text Extraction from Images'
 caption = 'Optical Character Recognition (OCR)'
 st.write(text, caption=caption)
