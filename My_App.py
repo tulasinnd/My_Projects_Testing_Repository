@@ -67,8 +67,9 @@ if image is not None:
             
         # TO FIND ADDRESS 
         keywords = ['road', 'floor', ' st ', 'st,', 'street', ' dt ', 'district',
-                    'near', 'beside', 'opposite', ' at ', ' in ', 'center', 'main road', '2nd', '3rd',
-                   'state','country', 'post','zip']
+                    'near', 'beside', 'opposite', ' at ', ' in ', 'center', 'main road',
+                   'state','country', 'post','zip','city','zone','mandal','town','rural',
+                    'circle','next to','across from','area','building','towers','village']
         # Define the regular expression pattern to match six or seven continuous digits
         digit_pattern = r'\d{6,7}'
         # Check if the string contains any of the keywords or a sequence of six or seven digits
