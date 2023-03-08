@@ -55,13 +55,8 @@ if image is not None:
             PIN=match.group()
             PID=i
             
-        match = re.search(r'[\+\-]?\d{7,}', string.lower())
-        if match:
-            PH.append(match.group())
-            PHID.append(i)    
-            
         digit_count = len(re.findall(r'\d', string))
-        if digit_count > 7:
+        if digit_count > 8:
             match = re.search(r'[\+\-]?\d', string)
         if match:
             PH.append(string)
