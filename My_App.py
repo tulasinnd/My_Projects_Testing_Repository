@@ -45,20 +45,13 @@ if image is not None:
     for i in result_text:
         st.write(i.lower())
         if re.search(r'@', i.lower()):
-            st.write("EMAIL: ", i.lower())
+            EMAIL=i.lower()
+            EIN=result_text.index(i)
+            
            
-        
-    str1 = ""   
-    for ele in result_text:    
-        str1 += ele.lower()+" "
-    st.write(str1)
+    st.write('EMAIL: ', EMAIL, EIN) 
     
-    # Regular expression for email addresses
-    email_pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-    # Regular expression for phone numbers
-    phone_pattern = r'\b\d{3}[-.]?\d{3}[-.]?\d{4}\b'
-    # Regular expression for pin codes
-    pincode_pattern = r'\b\d{6}\b'
+
         
             
 #     import en_core_web_sm
