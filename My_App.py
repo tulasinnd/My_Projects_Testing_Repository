@@ -132,5 +132,22 @@ if image is not None:
         for i, string in enumerate(result_text):
             if i not in IDS:            
                 st.write('##### '+string)
+                
+
+        if st.button('UPLOAD'):
+            st.write('UPLOADING')                
+            details = {
+                'Website': WEB,
+                'email':EMAIL,
+                'Phone Number': PH,
+                'Address': ADD,
+                'Pin Code': PIN
+            }
+
+            # Use the email as the key and add the details to the dictionary
+            my_dict = {CARD_DETAILS: details}
+
+            # Print the dictionary to check the output
+print(my_dict)
     
  
