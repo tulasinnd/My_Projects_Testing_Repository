@@ -93,14 +93,19 @@ if image is not None:
                 AID.append(i)
                 
         # WEBSITE URL       
-        if re.match(r"(?!.*@).*((www\.)|(\.com))", string):
+#         if re.match(r"(?!.*@).*((www\.)|(\.com))", string):
+#             WEB=string.lower()
+#             WID=i
+#         else:
+#             string = re.sub(r"(?!www\.)www", "www.", string)
+#             string = re.sub(r"(\.com)(?!\.)", ".com.", string)
+#             WEB=string.lower()
+#             WID=i
+            
+        if re.match(r"^www\..*", string):
             WEB=string.lower()
             WID=i
-        else:
-            string = re.sub(r"(?!www\.)www", "www.", string)
-            string = re.sub(r"(\.com)(?!\.)", ".com.", string)
-            WEB=string.lower()
-            WID=i
+            
 
            
     st.write('EMAIL: ', EMAIL, EID) 
