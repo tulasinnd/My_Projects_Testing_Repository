@@ -362,11 +362,11 @@ def Certifications():
     st.markdown(expander_style, unsafe_allow_html=True)
     with st.expander("AI FOR WOMEN "):    
   
-        st.image(r"C:\Users\91939\OneDrive\Desktop\Portfolio\AI.png")
+        st.image(r"DCV/AI.png")
 
     with st.expander("PROGRAMMING WITH PYTHON "):   
     
-        st.image(r"C:\Users\91939\OneDrive\Desktop\Portfolio\PYTHON.jpg")
+        st.image(r"DCV/PYTHON.jpg")
             
         
 # Define the pages dictionary
@@ -380,7 +380,7 @@ pages = {
 }
 
 #********************************** ROUND IMAGE***************************************************************************************
-img_url =r"C:\my database\Multimedia\photos\2018_01_21\DSCN6827.JPG"
+img_url =r"DCV/PIC.jpg"
 st.sidebar.image(img_url, caption='Your image caption', use_column_width=True, output_format='JPEG')
 # Apply CSS styling to create circular border
 st.markdown(
