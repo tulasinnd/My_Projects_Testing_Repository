@@ -387,21 +387,39 @@ pages = {
 }
 
 #********************************** ROUND IMAGE***************************************************************************************
-img_url =r"DCV/mydp.jpg"
-st.sidebar.image(img_url, caption='Tulasi NND (tulasinnd@gmail.com)', use_column_width=True, output_format='JPEG')
-# Apply CSS styling to create circular border
-st.markdown(
-    """
+# img_url =r"DCV/mydp.jpg"
+# st.sidebar.image(img_url, caption='Tulasi NND (tulasinnd@gmail.com)', use_column_width=True, output_format='JPEG')
+# # Apply CSS styling to create circular border
+# st.markdown(
+#     """
+#     <style>
+#     img {
+#         border-radius: 50%;
+#         border: 5px solid white;
+#         box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
+
+
+circular_style = """
     <style>
-    img {
+    .circular-image {
         border-radius: 50%;
         border: 5px solid white;
         box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
     }
     </style>
-    """,
-    unsafe_allow_html=True
-)
+    """
+# Define the HTML code for the images, including the "circular-image" class for the images you want to make circular
+html = """
+      <img src="DCV/mydp.jpg" class="circular-image">
+       """
+
+    # Combine the CSS and HTML code and render it using st.markdown
+st.markdown(circular_style + html, unsafe_allow_html=True)
 
 #*********************************************************************************************************************
 # Add a navigation menu to the sidebar
