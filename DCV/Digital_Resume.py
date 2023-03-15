@@ -348,6 +348,15 @@ def Projects():
     
 def Certifications():
     st.write( f'<h1 style="color:#2eb82e;">CERTIFICATIONS & ACHIEVEMENTS</h1>', unsafe_allow_html=True )
+    st.write("""
+            <style>
+                .no-underline {
+                    text-decoration: none;                   
+                    color: #a31aff ;
+                }
+            </style>
+        """, unsafe_allow_html=True)
+    
     expander_style = """
         <style>
             .streamlit-expanderHeader {
@@ -360,32 +369,17 @@ def Certifications():
 
     # Render the custom CSS style
     st.markdown(expander_style, unsafe_allow_html=True)
-    with st.expander("AI FOR WOMEN "):   
-        st.write("""
-            <style>
-                .no-underline {
-                    text-decoration: none;                   
-                    color: #a31aff ;
-                }
-            </style>
-        """, unsafe_allow_html=True)
-        cont='<a href="https://drive.google.com/file/d/1O5xSAbzK6vfjfmRCp8dZpKzG7uljpqUz/view?usp=sharing" class="no-underline" style="color: #a31aff;">CLICK HERE TO VIEW AI FOR WOMEN</a>'      
-        st.markdown(f'<div style="background-color:#2eb82e; padding:10px; border-radius:5px; margin-bottom:10px;"><p style="color:#b300b3; font-size: 20px">{cont}</p></div>', unsafe_allow_html=True)
-        
-        
-  
-        st.image(r"DCV/AI.png")
-        st.image(r"DCV/AI.png", caption='AI FOR WOMEN', use_column_width=True, output_format='JPEG')
+    with st.expander("AI FOR WOMEN "):           
+        cont='<a href="https://drive.google.com/file/d/1O5xSAbzK6vfjfmRCp8dZpKzG7uljpqUz/view?usp=sharing" class="no-underline" style="color: #b3ffe6;">CLICK HERE TO VIEW CERTIFICATION ON AI FOR WOMEN</a>'      
+        st.markdown(f'<div style="background-color:rgb(102, 255, 204,0.2); padding:10px; border-radius:5px; margin-bottom:10px;"><p style="color:#b300b3; font-size: 20px">{cont}</p></div>', unsafe_allow_html=True)
 
-    with st.expander("PROGRAMMING WITH PYTHON "):   
+    with st.expander("PROGRAMMING WITH PYTHON "):       
+        cont='<a href="https://drive.google.com/file/d/1iw8_fa6dUqPEYPac0KnHBd6I6v7mBiR7/view?usp=sharing" class="no-underline" style="color: #b3ffe6;">CLICK HERE TO VIEW PYTHON CERTIFICATION</a>'      
+        st.markdown(f'<div style="background-color:rgb(102, 255, 204,0.2); padding:10px; border-radius:5px; margin-bottom:10px;"><p style="color:#b300b3; font-size: 20px">{cont}</p></div>', unsafe_allow_html=True)
     
-        st.image(r"DCV/PYTHON.jpg")
-        st.image(r"DCV/PYTHON.jpg", caption='PROGRAMMING WITH PYTHON', use_column_width=True, output_format='JPEG')
-    
-    with st.expander("CLEARED GATE EXAM "):   
-    
-        st.image(r"DCV/PYTHON.jpg")
-        st.image(r"DCV/PYTHON.jpg", caption='GATE SCORE CARD', use_column_width=True, output_format='JPEG')       
+    with st.expander("CLEARED GATE EXAM "):       
+        cont='<a href="https://drive.google.com/file/d/1O5xSAbzK6vfjfmRCp8dZpKzG7uljpqUz/view?usp=sharing" class="no-underline" style="color: #b3ffe6;">CLICK HERE TO VIEW GATE SCORE CARD</a>'      
+        st.markdown(f'<div style="background-color:rgb(102, 255, 204,0.2); padding:10px; border-radius:5px; margin-bottom:10px;"><p style="color:#b300b3; font-size: 20px">{cont}</p></div>', unsafe_allow_html=True)
             
         
 # Define the pages dictionary
