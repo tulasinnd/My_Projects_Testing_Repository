@@ -363,14 +363,17 @@ def Certifications():
     with st.expander("AI FOR WOMEN "):    
   
         st.image(r"DCV/AI.png")
+        st.image(r"DCV/AI.png", caption='AI FOR WOMEN', use_column_width=True, output_format='JPEG')
 
     with st.expander("PROGRAMMING WITH PYTHON "):   
     
         st.image(r"DCV/PYTHON.jpg")
+        st.image(r"DCV/PYTHON.jpg", caption='PROGRAMMING WITH PYTHON', use_column_width=True, output_format='JPEG')
     
     with st.expander("CLEARED GATE EXAM "):   
     
         st.image(r"DCV/PYTHON.jpg")
+        st.image(r"DCV/PYTHON.jpg", caption='GATE SCORE CARD', use_column_width=True, output_format='JPEG')       
             
         
 # Define the pages dictionary
