@@ -146,7 +146,7 @@ def Skills():
     # Print each qualification as a block with different color
     #colors = ['rgb(255, 102, 102, 0.2)', 'rgb(102, 255, 178, 0.2)', 'rgb(255, 178, 102, 0.2)', 'rgb(102, 204, 255, 0.2)']
     colors = ['rgb(255, 102, 255,0.2)', 'rgba(54, 162, 235, 0.4)', 'rgba(255, 206, 86, 0.4)', 'rgba(75, 192, 192, 0.4)', 'rgba(153, 102, 255, 0.4)', 'rgb(0, 102, 255,0.3)', 'rgba(37, 121, 140, 0.4)', 'rgba(238, 130, 238, 0.4)']
-    colors1 = ['#ff66ff', '#36A2EB', '#ffcc00', '#4BC0C0', '#bf80ff', '#4d94ff', '#25798C', '#EE82EE']
+    colors1 = ['#ff66ff', '#36A2EB', '#ffcc00', '#4BC0C0', '#bf80ff', '#4d94ff', '#66ff66', '#ff99ff']
 
     col1, col2 = st.columns(2)
     for i, skill in enumerate(skills):
