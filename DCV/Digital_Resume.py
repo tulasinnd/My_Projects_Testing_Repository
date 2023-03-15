@@ -347,7 +347,7 @@ def Projects():
                      
     
 def Certifications():
-    st.write( f'<h1 style="color:#2eb82e;">CERTIFICATIONS</h1>', unsafe_allow_html=True )
+    st.write( f'<h1 style="color:#2eb82e;">CERTIFICATIONS & ACHIEVEMENTS</h1>', unsafe_allow_html=True )
     expander_style = """
         <style>
             .streamlit-expanderHeader {
