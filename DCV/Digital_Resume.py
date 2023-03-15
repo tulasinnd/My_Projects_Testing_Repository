@@ -384,7 +384,7 @@ pages = {
 }
 
 #********************************** ROUND IMAGE***************************************************************************************
-img_url =r"DCV/PIC.jpg"
+img_url =r"DCV/dp.jpg"
 st.sidebar.image(img_url, caption='Tulasi NND', use_column_width=True, output_format='JPEG')
 # Apply CSS styling to create circular border
 st.markdown(
