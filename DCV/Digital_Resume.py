@@ -372,6 +372,7 @@ def Certifications():
     with st.expander("AI FOR WOMEN "):           
         cont='<a href="https://drive.google.com/file/d/1O5xSAbzK6vfjfmRCp8dZpKzG7uljpqUz/view?usp=sharing" class="no-underline" style="color: #b3ffe6;">CLICK HERE TO VIEW CERTIFICATION ON AI FOR WOMEN</a>'      
         st.markdown(f'<div style="background-color:rgb(102, 255, 204,0.2); padding:10px; border-radius:5px; margin-bottom:10px;"><p style="color:#b300b3; font-size: 20px">{cont}</p></div>', unsafe_allow_html=True)
+        st.markdown(cont, unsafe_allow_html=True)
 
     with st.expander("PROGRAMMING WITH PYTHON "):       
         cont='<a href="https://drive.google.com/file/d/1iw8_fa6dUqPEYPac0KnHBd6I6v7mBiR7/view?usp=sharing" class="no-underline" style="color: #b3ffe6;">CLICK HERE TO VIEW PYTHON CERTIFICATION</a>'      
