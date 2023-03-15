@@ -367,6 +367,10 @@ def Certifications():
     with st.expander("PROGRAMMING WITH PYTHON "):   
     
         st.image(r"DCV/PYTHON.jpg")
+    
+    with st.expander("CLEARED GATE EXAM "):   
+    
+        st.image(r"DCV/PYTHON.jpg")
             
         
 # Define the pages dictionary
