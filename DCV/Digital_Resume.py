@@ -387,36 +387,21 @@ pages = {
 }
 
 #********************************** ROUND IMAGE***************************************************************************************
-# img_url =r"DCV/mydp.jpg"
-# st.sidebar.image(img_url, caption='Tulasi NND (tulasinnd@gmail.com)', use_column_width=True, output_format='JPEG')
-# # Apply CSS styling to create circular border
-# st.markdown(
-#     """
-#     <style>
-#     img {
-#         border-radius: 50%;
-#         border: 5px solid white;
-#         box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-#     }
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
-
-circular_style = """
-<style>
-.circular-image {
-    border-radius: 50%;
-    border: 5px solid white;
-    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-}
-</style>
-"""
-
-# Define the URLs or paths to the images
-image1_url = r"DCV/mydp.jpg"
-st.image(image1_url, width=None, caption=None, use_column_width=True, style={"border-radius": "50%", "border": "5px solid white", "box-shadow": "0px 0px 5px 2px rgba(0, 0, 0, 0.2)"})
-st.markdown(circular_style, unsafe_allow_html=True)
+img_url =r"DCV/mydp.jpg"
+st.sidebar.image(img_url, caption='Tulasi NND (tulasinnd@gmail.com)', use_column_width=True, output_format='JPEG')
+# Apply CSS styling to create circular border
+st.markdown(
+    """
+    <style>
+    img {
+        border-radius: 50%;
+        border: 5px solid white;
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 
 #*********************************************************************************************************************
