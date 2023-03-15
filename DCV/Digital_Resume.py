@@ -79,7 +79,7 @@ def Education():
         
 def Skills():    
     import streamlit as st
-    st.write( f'<h1 style="color:#ff6666;">TECHNICAL SKILLS</h1>', unsafe_allow_html=True )
+    st.write( f'<h1 style="color:rgb(255, 0, 170,0.7);">TECHNICAL SKILLS</h1>', unsafe_allow_html=True )
     # Define function to create block with colored heading
     def create_block(heading, content, color,col):
         st.markdown(f'<div style="background-color:{color}; padding:10px; border-radius:5px; margin-bottom:10px;"><h4 style="color:{col}">{heading}</h4><p style="color:{col}; font-size: 20px">{content}</p></div>', unsafe_allow_html=True)
