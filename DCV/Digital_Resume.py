@@ -419,7 +419,7 @@ html = """
        """
 
     # Combine the CSS and HTML code and render it using st.markdown
-st.markdown(circular_style + html, unsafe_allow_html=True)
+st.sidebar.markdown(circular_style + html, unsafe_allow_html=True)
 
 #*********************************************************************************************************************
 # Add a navigation menu to the sidebar
