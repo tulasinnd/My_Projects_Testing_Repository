@@ -415,7 +415,7 @@ circular_style = """
 
 # Define the URLs or paths to the images
 image1_url = r"DCV/mydp.jpg"
-st.image(image1_url, width=None, caption=None, use_column_width=True, class_="circular-image")
+st.image(image1_url, width=None, caption=None, use_column_width=True, style={"border-radius": "50%", "border": "5px solid white", "box-shadow": "0px 0px 5px 2px rgba(0, 0, 0, 0.2)"})
 st.markdown(circular_style, unsafe_allow_html=True)
 
 
