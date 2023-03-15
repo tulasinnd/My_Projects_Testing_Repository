@@ -403,23 +403,21 @@ pages = {
 #     unsafe_allow_html=True
 # )
 
-
 circular_style = """
-    <style>
-    .circular-image {
-        border-radius: 50%;
-        border: 5px solid white;
-        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
-    }
-    </style>
-    """
-# Define the HTML code for the images, including the "circular-image" class for the images you want to make circular
-html = """
-      <img src="DCV/mydp.jpg" class="circular-image">
-       """
+<style>
+.circular-image {
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.2);
+}
+</style>
+"""
 
-    # Combine the CSS and HTML code and render it using st.markdown
-st.sidebar.markdown(circular_style + html, unsafe_allow_html=True)
+# Define the URLs or paths to the images
+image1_url = r"DCV/mydp.jpg"
+st.image(image1_url, width=None, caption=None, use_column_width=True, class_="circular-image")
+st.markdown(circular_style, unsafe_allow_html=True)
+
 
 #*********************************************************************************************************************
 # Add a navigation menu to the sidebar
