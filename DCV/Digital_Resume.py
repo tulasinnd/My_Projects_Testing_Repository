@@ -360,7 +360,19 @@ def Certifications():
 
     # Render the custom CSS style
     st.markdown(expander_style, unsafe_allow_html=True)
-    with st.expander("AI FOR WOMEN "):    
+    with st.expander("AI FOR WOMEN "):   
+        st.write("""
+            <style>
+                .no-underline {
+                    text-decoration: none;                   
+                    color: #a31aff ;
+                }
+            </style>
+        """, unsafe_allow_html=True)
+        cont='<a href="https://drive.google.com/file/d/1O5xSAbzK6vfjfmRCp8dZpKzG7uljpqUz/view?usp=sharing" class="no-underline" style="color: #a31aff;">CLICK HERE TO VIEW AI FOR WOMEN</a>'      
+        st.markdown(f'<div style="background-color:#2eb82e; padding:10px; border-radius:5px; margin-bottom:10px;"><p style="color:#b300b3; font-size: 20px">{cont}</p></div>', unsafe_allow_html=True)
+        
+        
   
         st.image(r"DCV/AI.png")
         st.image(r"DCV/AI.png", caption='AI FOR WOMEN', use_column_width=True, output_format='JPEG')
