@@ -429,38 +429,73 @@ import streamlit as st
 
 # Define CSS styles
 css = """
-.image-grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+/* Set max height for thumbnail images */
+.thumbnail {
+    height: 100px;
 }
 
-.image-grid-item {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+/* Set max height for full-size images */
+.full-image {
+    max-height: 80vh;
+}
+
+/* Remove padding and margins from modal */
+.modal {
+    padding: 0;
+    margin: 0;
 }
 """
 
 # Define image URLs
 image_urls = [
-    'https://picsum.photos/id/100/200/200',
-    'https://picsum.photos/id/101/200/200',
-    'https://picsum.photos/id/102/200/200',
-    'https://picsum.photos/id/103/200/200',
-    'https://picsum.photos/id/104/200/200',
-    'https://picsum.photos/id/105/200/200',
-    'https://picsum.photos/id/106/200/200',
-    'https://picsum.photos/id/107/200/200',
-    'https://picsum.photos/id/108/200/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
 ]
 
 # Use st.markdown to display the CSS styles
 st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
+# Define modal content
+def modal_content(image_url):
+    return f'<img class="full-image" src="{image_url}" />'
+
 # Use the image URLs to display the images in a grid
-st.markdown('<div class="image-grid-container">', unsafe_allow_html=True)
-for url in image_urls:
-    st.markdown(f'<img class="image-grid-item" src="{url}" />', unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
+for i in range(0, len(image_urls), 4):
+    row = image_urls[i:i+4]
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        if i < len(image_urls):
+            image_url = row[0]
+            if st.button(f'<img class="thumbnail" src="{image_url}" />'):
+                st.markdown(modal_content(image_url), unsafe_allow_html=True)
+    with col2:
+        if i+1 < len(image_urls):
+            image_url = row[1]
+            if st.button(f'<img class="thumbnail" src="{image_url}" />'):
+                st.markdown(modal_content(image_url), unsafe_allow_html=True)
+    with col3:
+        if i+2 < len(image_urls):
+            image_url = row[2]
+            if st.button(f'<img class="thumbnail" src="{image_url}" />'):
+                st.markdown(modal_content(image_url), unsafe_allow_html=True)
+    with col4:
+        if i+3 < len(image_urls):
+            image_url = row[3]
+            if st.button(f'<img class="thumbnail" src="{image_url}" />'):
+                st.markdown(modal_content(image_url), unsafe_allow_html=True)
+
 
