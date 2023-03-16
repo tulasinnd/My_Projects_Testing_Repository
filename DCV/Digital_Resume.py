@@ -423,3 +423,41 @@ with st.container():
     st.write("")
     st.write( f'<p style="color:#334d4d;">Created by Tulasi NND</p>', unsafe_allow_html=True )
     
+    
+    # r"DCV/AI.png" , r"DCV/DATA_SCIENCE.png", r"DCV/GATE_2019.jpg", r"DCV/PY.jpg"
+    
+import streamlit as st
+from PIL import Image
+
+# Define a list of image paths
+image_paths = [r"DCV/AI.png" , r"DCV/DATA_SCIENCE.png", r"DCV/GATE_2019.jpg", r"DCV/PY.jpg"]
+
+# Define the number of columns in the grid
+num_columns = 2
+
+# Define the size of the thumbnails
+thumbnail_size = 200
+
+# Create a grid of thumbnail images
+col_count = 0
+for image_path in image_paths:
+    # Load the image and resize it to the thumbnail size
+    image = Image.open(image_path)
+    image.thumbnail((thumbnail_size, thumbnail_size))
+
+    # Create a new column for the thumbnail
+    col_index = col_count % num_columns
+    with st.sidebar:
+        st.image(image, use_column_width=True, caption=image_path, key=f"thumbnail_{col_index}")
+        # If the user clicks on the thumbnail, display the full-size image
+        if st.button(f"View {image_path}"):
+            st.image(Image.open(image_path), use_column_width=True, caption=image_path)
+            
+    # Increment the column count
+    col_count += 1
+
+    # Start a new row after the specified number of columns
+    if col_count % num_columns == 0:
+        st.write('')
+
+    
