@@ -425,39 +425,25 @@ with st.container():
     
     
     # r"DCV/AI.png" , r"DCV/DATA_SCIENCE.png", r"DCV/GATE_2019.jpg", r"DCV/PY.jpg"
+
     
 import streamlit as st
 from PIL import Image
 
-# Define a list of image paths
-image_paths = [r"DCV/AI.png" , r"DCV/DATA_SCIENCE.png", r"DCV/GATE_2019.jpg", r"DCV/PY.jpg"]
+# Define images
+image1 = Image.open(r"DCV/AI.png")
+image2 = Image.open(r"DCV/DATA_SCIENCE.png")
+image3 = Image.open(r"DCV/GATE_2019.jpg")
 
-# Define the number of columns in the grid
-num_columns = 2
+# Display images in a grid
+col1, col2, col3 = st.beta_columns(3)
+with col1:
+    st.image(image1, use_column_width=True, caption='Image 1')
+with col2:
+    st.image(image2, use_column_width=True, caption='Image 2')
+with col3:
+    st.image(image3, use_column_width=True, caption='Image 3')
 
-# Define the size of the thumbnails
-thumbnail_size = 200
-
-# Create a grid of thumbnail images
-col_count = 0
-for image_path in image_paths:
-    # Load the image and resize it to the thumbnail size
-    image = Image.open(image_path)
-    image.thumbnail((thumbnail_size, thumbnail_size))
-
-    # Create a new column for the thumbnail
-    col_index = col_count % num_columns
-    with st.sidebar:
-        st.image(image, use_column_width=True, caption=image_path, key=f"thumbnail_{col_index}")
-        # If the user clicks on the thumbnail, display the full-size image
-        if st.button(f"View {image_path}"):
-            st.image(Image.open(image_path), use_column_width=True, caption=image_path)
-            
-    # Increment the column count
-    col_count += 1
-
-    # Start a new row after the specified number of columns
-    if col_count % num_columns == 0:
-        st.write('')
-
-    
+# Show full-size image on click
+if st.button('Show full-size image'):
+    st.image(image1, caption='Full-size Image 1')
