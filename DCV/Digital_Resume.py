@@ -352,7 +352,7 @@ def Certifications():
         <style>
             .streamlit-expanderHeader {
                 background-color: rgb(51, 204, 51, 0.2) !important;
-                color: white !important;
+                color: black !important;
                 font-weight: bold !important;
             }
         </style>
