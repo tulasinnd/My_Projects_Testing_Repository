@@ -480,22 +480,20 @@ for i in range(0, len(image_urls), 4):
     with col1:
         if i < len(image_urls):
             image_url = row[0]
-            if st.button(f'<img class="thumbnail" src="{image_url}" />'):
+            if st.button(f'<img class="thumbnail" src="{image_url}" />', key=i):
                 st.markdown(modal_content(image_url), unsafe_allow_html=True)
     with col2:
         if i+1 < len(image_urls):
             image_url = row[1]
-            if st.button(f'<img class="thumbnail" src="{image_url}" />'):
+            if st.button(f'<img class="thumbnail" src="{image_url}" />', key=i+1):
                 st.markdown(modal_content(image_url), unsafe_allow_html=True)
     with col3:
         if i+2 < len(image_urls):
             image_url = row[2]
-            if st.button(f'<img class="thumbnail" src="{image_url}" />'):
+            if st.button(f'<img class="thumbnail" src="{image_url}" />', key=i+2):
                 st.markdown(modal_content(image_url), unsafe_allow_html=True)
     with col4:
         if i+3 < len(image_urls):
             image_url = row[3]
-            if st.button(f'<img class="thumbnail" src="{image_url}" />'):
+            if st.button(f'<img class="thumbnail" src="{image_url}" />', key=i+3):
                 st.markdown(modal_content(image_url), unsafe_allow_html=True)
-
-
