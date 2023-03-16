@@ -426,24 +426,42 @@ with st.container():
     
     # r"DCV/AI.png" , r"DCV/DATA_SCIENCE.png", r"DCV/GATE_2019.jpg", r"DCV/PY.jpg"
 
-    
 import streamlit as st
-from PIL import Image
 
-# Define images
-image1 = Image.open(r"DCV/AI.png")
-image2 = Image.open(r"DCV/DATA_SCIENCE.png")
-image3 = Image.open(r"DCV/GATE_2019.jpg")
+# Define CSS styles
+css = """
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
 
-# Display images in a grid
-col1, col2, col3 = st.beta_columns(3)
-with col1:
-    st.image(image1, use_column_width=True, caption='Image 1')
-with col2:
-    st.image(image2, use_column_width=True, caption='Image 2')
-with col3:
-    st.image(image3, use_column_width=True, caption='Image 3')
+.image-grid img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+"""
 
-# Show full-size image on click
-if st.button('Show full-size image'):
-    st.image(image1, caption='Full-size Image 1')
+# Define image URLs
+image_urls = [
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+    'https://picsum.photos/200',
+]
+
+# Use st.markdown to display the CSS styles
+st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+
+# Use the image URLs to display the images in a grid
+st.markdown('<div class="image-grid">', unsafe_allow_html=True)
+for url in image_urls:
+    st.markdown(f'<img src="{url}" />', unsafe_allow_html=True)
+st.markdown('</div>', unsafe_allow_html=True)
+
