@@ -425,43 +425,42 @@ with st.container():
     
     
     # r"DCV/AI.png" , r"DCV/DATA_SCIENCE.png", r"DCV/GATE_2019.jpg", r"DCV/PY.jpg"
-
 import streamlit as st
 
 # Define CSS styles
 css = """
-.image-grid {
+.image-grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
 }
 
-.image-grid img {
-    max-width: 100%;
-    height: auto;
+.image-grid-item {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 """
 
 # Define image URLs
 image_urls = [
-    'https://picsum.photos/200',
-    'https://picsum.photos/200',
-    'https://picsum.photos/200',
-    'https://picsum.photos/200',
-    'https://picsum.photos/200',
-    'https://picsum.photos/200',
-    'https://picsum.photos/200',
-    'https://picsum.photos/200',
-    'https://picsum.photos/200',
+    'https://picsum.photos/id/100/200/200',
+    'https://picsum.photos/id/101/200/200',
+    'https://picsum.photos/id/102/200/200',
+    'https://picsum.photos/id/103/200/200',
+    'https://picsum.photos/id/104/200/200',
+    'https://picsum.photos/id/105/200/200',
+    'https://picsum.photos/id/106/200/200',
+    'https://picsum.photos/id/107/200/200',
+    'https://picsum.photos/id/108/200/200',
 ]
 
 # Use st.markdown to display the CSS styles
 st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 # Use the image URLs to display the images in a grid
-st.markdown('<div class="image-grid">', unsafe_allow_html=True)
+st.markdown('<div class="image-grid-container">', unsafe_allow_html=True)
 for url in image_urls:
-    st.markdown(f'<img src="{url}" />', unsafe_allow_html=True)
+    st.markdown(f'<img class="image-grid-item" src="{url}" />', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
