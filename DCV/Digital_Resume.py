@@ -429,7 +429,7 @@ import streamlit as st
 from PIL import Image
 
 # Define a list of image paths
-image_paths = ['DCV/AI.jpg', 'DCV/PYTHON.jpg', 'DCV/DATA_SCIENCE.jpg', 'DCV/GATE_2019.png']
+image_paths = ['DCV/AI.png', 'DCV/PYTHON.jpg', 'DCV/DATA_SCIENCE.png', 'DCV/GATE_2019.jpg']
 
 # Define the number of columns in the grid
 num_columns = 2
