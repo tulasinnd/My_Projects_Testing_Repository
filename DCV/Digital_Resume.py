@@ -370,6 +370,11 @@ def Certifications():
     with st.expander("CLEARED GATE EXAM "):       
         cont='<a href="https://drive.google.com/file/d/1O5xSAbzK6vfjfmRCp8dZpKzG7uljpqUz/view?usp=sharing" class="no-underline" style="color: #b3ffe6;"><br>CLICK HERE TO VIEW GATE SCORE CARD</a>'      
         st.markdown(cont, unsafe_allow_html=True)            
+    
+    with st.expander("MASTER DATA SCIENCE PROGRAM "):        
+        cont='<a href="https://drive.google.com/file/d/1O5xSAbzK6vfjfmRCp8dZpKzG7uljpqUz/view?usp=sharing" class="no-underline" style="color: #b3ffe6;"><br>CLICK HERE TO VIEW DATA SCIENCE CERTIFICATE</a>'      
+        st.markdown(cont, unsafe_allow_html=True)            
+
         
 # Define the pages dictionary
 pages = {
