@@ -60,23 +60,23 @@ def breakfast_nonveg():
     # Define educational qualifications
     skills = [
         {'skill': 'Spinach and Egg Scramble',
-         'd1':"""   Ingredients:
-                    - 2 tablespoons olive oil
-                    - 1/2 onion, diced
-                    - 2 cloves garlic, minced
-                    - 2 cups fresh spinach leaves, washed and chopped
-                    - 4 eggs, beaten
-                    - Salt and pepper, to taste
-                    - Optional toppings: shredded cheese, sliced avocado, hot sauce
+         'd1':"""   Ingredients:<br>
+                    - 2 tablespoons olive oil<br>
+                    - 1/2 onion, diced<br>
+                    - 2 cloves garlic, minced<br>
+                    - 2 cups fresh spinach leaves, washed and chopped<br>
+                    - 4 eggs, beaten<br>
+                    - Salt and pepper, to taste<br>
+                    - Optional toppings: shredded cheese, sliced avocado, hot sauce<br><br>
                     
-                    Preparation:
-                    - Heat the olive oil in a large skillet over medium heat.
-                    - Add the diced onion and sauté until softened, about 3-4 minutes.
-                    - Add the minced garlic and cook for an additional 1-2 minutes.
-                    - Add the chopped spinach leaves to the skillet and cook until wilted, stirring occasionally.
-                    - Pour the beaten eggs over the spinach mixture in the skillet and stir to scramble.
-                    - Cook the eggs until they are set, stirring occasionally and breaking up any large chunks.
-                    - Season with salt and pepper to taste.
+                    Preparation:<br>
+                    - Heat the olive oil in a large skillet over medium heat.<br>
+                    - Add the diced onion and sauté until softened, about 3-4 minutes.<br>
+                    - Add the minced garlic and cook for an additional 1-2 minutes.<br>
+                    - Add the chopped spinach leaves to the skillet and cook until wilted, stirring occasionally.<br>
+                    - Pour the beaten eggs over the spinach mixture in the skillet and stir to scramble.<br>
+                    - Cook the eggs until they are set, stirring occasionally and breaking up any large chunks.<br>
+                    - Season with salt and pepper to taste.<br>
                     - Serve hot with optional toppings, such as shredded cheese, sliced avocado, or hot sauce. Enjoy! """,
          'd2':"https://www.giverecipe.com/wp-content/uploads/2019/01/eggs-with-spinach.jpg",
          },
