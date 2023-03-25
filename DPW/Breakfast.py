@@ -67,8 +67,7 @@ def breakfast_nonveg():
                     - 2 cups fresh spinach leaves, washed and chopped<br>
                     - 4 eggs, beaten<br>
                     - Salt and pepper, to taste<br>
-                    - Optional toppings: shredded cheese, sliced avocado, hot sauce<br><br>
-                    
+                    - Optional toppings: shredded cheese, sliced avocado, hot sauce<br><br>                    
                     Preparation:<br>
                     - Heat the olive oil in a large skillet over medium heat.<br>
                     - Add the diced onion and sauté until softened, about 3-4 minutes.<br>
