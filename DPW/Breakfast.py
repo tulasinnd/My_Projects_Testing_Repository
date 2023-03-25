@@ -60,7 +60,11 @@ def breakfast_nonveg():
     # Define educational qualifications
     skills = [
         {'skill': 'Spinach and Egg Scramble',
-         'd1':"""hii """,
+         'd1':"""We are so obsessed with eggs, especially fried and sunny-side up.
+         We can crack eggs on any vegetable we cook in a pan and this spinach recipe 
+         is one of our favorite keto breakfast recipes. OMG that yolk leaking on the 
+         cooked spinach is just irresistible! Watch the video below and see it yourself!
+         Nobody can resist that yolk! YUM! We sometimes have it even for a busy weeknight dinner. """,
          'd2':"https://www.giverecipe.com/wp-content/uploads/2019/01/eggs-with-spinach.jpg",
          },
 
