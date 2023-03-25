@@ -61,7 +61,7 @@ def breakfast_nonveg():
     skills = [
         {'skill': 'Spinach and Egg Scramble',
          'd1':"""hii """,
-         'd2':r"DPW/Dataset/bf-1.jpg",
+         'd2':"https://www.giverecipe.com/wp-content/uploads/2019/01/eggs-with-spinach.jpg",
          },
 
         {'skill': '2 DESCRIPTIVE STATISTICS',
