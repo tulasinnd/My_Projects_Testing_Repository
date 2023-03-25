@@ -61,7 +61,7 @@ def breakfast_nonveg():
     skills = [
         {'skill': 'Spinach and Egg Scramble',
          'd1':"""hii """,
-         'd2':r"C:\Users\91939\OneDrive\Desktop\Personal_Projects\DIET_RECEPIES\Diet_Dataset\bf-1.jpg",
+         'd2':r"DPW/Dataset/bf-1.jpg",
          },
 
         {'skill': '2 DESCRIPTIVE STATISTICS',
