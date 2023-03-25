@@ -66,7 +66,7 @@ def breakfast_nonveg():
 
         {'skill': '2 DESCRIPTIVE STATISTICS',
          'd1':'DISTRIBUTIONS:&nbsp;&nbsp;&nbsp;Normal, Exponential, Power-Law etc',
-         'd2':r"C:\Users\91939\OneDrive\Desktop\Personal_Projects\DIET_RECEPIES\Diet_Dataset\bf-1.jpg",
+         'd2':r"DPW/Dataset/bf-1.jpg",
          },
 
         {'skill': '3 DATA VISUALIZATION',
