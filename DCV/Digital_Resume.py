@@ -160,7 +160,7 @@ def Skills():
 def Projects():
 
     import streamlit as st    
-    tab1, tab2, tab3,tab4 = st.tabs(["PROJECT 1", "PROJECT 2", "PROJECT 3","PROJECT 4"]) #,"PROJECT 5","PROJECT 6"])
+    tab1, tab2, tab3,tab4, tab5 = st.tabs(["PROJECT 1", "PROJECT 2", "PROJECT 3","PROJECT 4", "PROJECT 5"]) #,"PROJECT 5","PROJECT 6"])
 
     with tab1:
         import streamlit as st
@@ -337,9 +337,49 @@ def Projects():
         with col2:
             create_block(f"{projects[2]['a']}", colors)
         
+    with tab5:
+        st.write( f'<h1 style="color:#b300b3;">Predict Your Body Weight Category with DL</h1>', unsafe_allow_html=True )
+        # Define function to create block with colored heading
+        def create_block(content, color):
+            st.markdown(f'<div style="background-color:{color}; padding:10px; border-radius:5px; margin-bottom:10px;"><p style="color:#b300b3; font-size: 20px">{content}</p></div>', unsafe_allow_html=True)
+        st.write("""
+            <style>
+                .no-underline {
+                    text-decoration: none;                   
+                    color: #e600e6 ;
+                }
+            </style>
+        """, unsafe_allow_html=True)
+        # Define PROJECTS 
+        projects = [
+            {'a':'''<b>INTRODUCTION:</b><br>
+            Predict-Your-Body-Weight-Category-with-DL is an app I created that predicts a user's weight 
+            category using Artificial Neural Networks (ANNs). The app asks users 12 questions about their 
+            personal information and lifestyle habits, including age, gender, height, weight, family 
+            history of being overweight, eating habits, smoking, monitoring calorie intake, and transportation used. 
+            The ANN uses this information to provide an accurate weight category prediction and help users make lifestyle changes.
+            It's a valuable tool for anyone looking to monitor their weight and improve their overall health..'''},
+            {'a':'''<b>SKILLS:</b><br>
+            PYTHON, PANDAS, DEEP LEARNING, STREAMLIT<br>
+            ARTIFICIAL NEURAL NETWORKS, KERAS, TENSORFLOW<br>
+            '''},  
+            {'a': '''<a href="https://lnkd.in/gB8iDXy8" class="no-underline" style="color: #b300b3;">CLICK HERE TO VIEW APP NOW</a><br><br>
+                     <a href="https://lnkd.in/g5Hpc8iQ" class="no-underline" style="color: #b300b3;">CLICK HERE TO VIEW CODE NOW</a>'''}        
+                ]
 
-    # with tab5:
-    #     st.header("PROJECT 5")
+        # Print each projects as a block with different color
+        colors = 'rgb(255, 0, 255, 0.15)'
+
+        create_block(f"{projects[0]['a']}", colors)
+
+        col1, col2,  = st.columns([6,4])
+
+        with col1:
+            create_block(f"{projects[1]['a']}", colors)
+            
+        with col2:
+            create_block(f"{projects[2]['a']}", colors)
+        
         
 
     # with tab6:
