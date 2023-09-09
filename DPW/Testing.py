@@ -6,7 +6,7 @@ def test():
     def create_block(ingredients,heading,pic,col):
         st.write(f'<div style="align-items:center;">'
          #f'<div style="flex:1;"><h4 style="color:{col}">{heading}</h4><p style="color:{col}; font-size: 20px">{content}</p></div>'
-         f'<div ><h4 style="color:{col}">{heading}</h4><img src="{pic}" style="width:380px; height:auto;"></div>'
+         f'<div ><h4 style="color:{col}">{heading}</h4><img src="{pic}" style="width:377px; height:auto;"></div>'
          f'</div>',
          unsafe_allow_html=True)
         with st.expander("See explanation"):
