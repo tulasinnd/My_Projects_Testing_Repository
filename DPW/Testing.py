@@ -3,12 +3,15 @@ import streamlit as st
 def test():
     import streamlit as st
     # Define function to create block with colored heading
-    def create_block(heading, content,pic, color,col):
+    def create_block(ingredients,heading,pic,col):
         st.write(f'<div style="align-items:center;">'
          #f'<div style="flex:1;"><h4 style="color:{col}">{heading}</h4><p style="color:{col}; font-size: 20px">{content}</p></div>'
          f'<div ><h4 style="color:{col}">{heading}</h4><img src="{pic}" style="width:384px; height:auto;"></div>'
          f'</div>',
          unsafe_allow_html=True)
+        with st.expander("See explanation"):
+            st.write(ingredients)
+
     # Define educational qualifications
     skills = [
         {'skill': 'Spinach Egg Scramble',
@@ -110,10 +113,6 @@ def test():
          'd1':'',
          'd2':"https://skinnyms.com/wp-content/uploads/2021/07/Simple-Egg-and-Veggie-Breakfast-Wraps-Breakfast-Recipe-2-1200x800.jpg",},
 
-        
-        # {'skill': '8 GUI & DEPLOYMENT',
-        #  'd1':'Plotly',
-        #  'd2':r"C:\Users\91939\OneDrive\Desktop\Personal_Projects\DIET_RECEPIES\Diet_Dataset\bf-1.jpg",},
     ]
 
     # Print each qualification as a block with different color
@@ -121,5 +120,4 @@ def test():
     colors1 = ['#cc6699', '#ffa31a', '#42bdbd', '#6699cc', '#7575a3', '#39ac73']
 
     for i, skill in enumerate(skills):                
-                create_block(f"{skill['skill']}", f"{skill['d1']}",f"{skill['d2']}", colors[i % len(colors)], colors1[i % len(colors)])
-        
+                create_block(f"{skill['d1']}", f"{skill['skill']}",f"{skill['d2']}", colors1[i % len(colors)])
