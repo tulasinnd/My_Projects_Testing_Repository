@@ -58,19 +58,19 @@ def test():
 
         {'skill': 'Garlic Cabbage Egg Delight',
          'd1':'''
-        Ingredients:<br>
-        - 4 large eggs<br>
-        - 4 cups shredded cabbage<br>
-        - 2 cloves garlic, minced<br>
-        - 2 tablespoons oil<br>
-        - Salt and pepper to taste<br><br>
-        Preparation:<br>
-        - Heat oil in a skillet over medium heat.<br>
-        - Add minced garlic and cook for 1-2 minutes.<br>
-        - Add shredded cabbage and cook about 5 minutes.<br>
-        - Beat the eggs in a bowl and season with salt and pepper.<br>
-        - Pour the beaten eggs into the skillet with the cabbage.<br>
-        - Stir gently and cook until the eggs are set.<br>
+        Ingredients: Garlic Cabbage Egg Delight
+        - 4 large eggs
+        - 4 cups shredded cabbage
+        - 2 cloves garlic, minced
+        - 2 tablespoons oil
+        - Salt and pepper to taste
+        Preparation:
+        - Heat oil in a skillet over medium heat.
+        - Add minced garlic and cook for 1-2 minutes.
+        - Add shredded cabbage and cook about 5 minutes.
+        - Beat the eggs in a bowl and season with salt and pepper.
+        - Pour the beaten eggs into the skillet with the cabbage.
+        - Stir gently and cook until the eggs are set.
          ''',
          'd2':'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F44%2F2019%2F08%2F27045156%2F3756472.jpg',},
 
