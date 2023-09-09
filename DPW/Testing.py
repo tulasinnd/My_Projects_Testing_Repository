@@ -64,6 +64,7 @@ def test():
         - 2 cloves garlic, minced
         - 2 tablespoons oil
         - Salt and pepper to taste
+        
         Preparation:
         - Heat oil in a skillet over medium heat.
         - Add minced garlic and cook for 1-2 minutes.
