@@ -13,7 +13,7 @@ import testing
 st.set_page_config(layout="wide")
 
 # Create a function to display the homepage
-def testing():
+def testingfun():
     import streamlit as st
     testing.test() 
 def BREAKFAST():    
@@ -83,7 +83,7 @@ pages = {
     "SNACKS": SNACKS,
     "DINNER": DINNER,
     "SPECIAL": SPECIAL,
-    "testing":testing,
+    "testingfun": testingfun,
 
 }
 
