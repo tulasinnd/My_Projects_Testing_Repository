@@ -15,23 +15,24 @@ def test():
     # Define educational qualifications
     skills = [
         {'skill': 'Spinach Egg Scramble',
-         'd1':"""   Ingredients:<br>
-                    - 2 tablespoons olive oil<br>
-                    - 1/2 onion, diced<br>
-                    - 2 cloves garlic, minced<br>
-                    - 2 cups fresh spinach leaves, washed and chopped<br>
-                    - 4 eggs, beaten<br>
-                    - Salt and pepper, to taste<br>
-                    - Additional twists: mushrooms, bell peppers<br>
-                    - Optional toppings: cheese, avocado, hot sauce<br><br>                    
-                    Preparation:<br>
-                    - Heat oil in skillet, medium heat.<br>
-                    - Saute onion until soft, 3-4 min.<br>
-                    - Add garlic, cook 1-2 min.<br>
-                    - Add spinach, cook until wilted, stir occasionally.<br>
-                    - Pour in beaten eggs, scramble.<br>
-                    - Cook eggs until set, stir occasionally, break up chunks.<br>
-                    - Season with salt and pepper.<br>
+         'd1':"""   Ingredients: Spinach Egg Scramble
+                    - 2 tablespoons olive oil
+                    - 1/2 onion, diced
+                    - 2 cloves garlic, minced
+                    - 2 cups fresh spinach leaves, washed and chopped
+                    - 4 eggs, beaten
+                    - Salt and pepper, to taste
+                    - Additional twists: mushrooms, bell peppers
+                    - Optional toppings: cheese, avocado, hot sauce               
+                    
+                    Preparation:
+                    - Heat oil in skillet, medium heat.
+                    - Saute onion until soft, 3-4 min.
+                    - Add garlic, cook 1-2 min.
+                    - Add spinach, cook until wilted, stir occasionally.
+                    - Pour in beaten eggs, scramble.
+                    - Cook eggs until set, stir occasionally, break up chunks.
+                    - Season with salt and pepper.
                     - Serve hot with optional toppings. Enjoy! """,
          'd2':"https://www.giverecipe.com/wp-content/uploads/2019/01/eggs-with-spinach.jpg",
          },
