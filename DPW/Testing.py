@@ -6,7 +6,7 @@ def test():
     def create_block(heading, content,pic, color,col):
         st.write(f'<div style="background-color:{color}; padding:10px; border-radius:5px; margin-bottom:10px; display:flex; align-items:center;">'
          #f'<div style="flex:1;"><h4 style="color:{col}">{heading}</h4><p style="color:{col}; font-size: 20px">{content}</p></div>'
-         f'<div style="flex:1;"><h4 style="color:{col}">{heading}</h4><img src="{pic}" style="width:390px; height:auto;"></div>'
+         f'<div style="flex:1;"><h4 style="color:{col}">{heading}</h4><img src="{pic}" style="width:384px; height:auto;"></div>'
          f'</div>',
          unsafe_allow_html=True)
     # Define educational qualifications
