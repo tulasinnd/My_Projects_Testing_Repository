@@ -8,12 +8,12 @@ import Dinner
 import Lunch
 import Snacks 
 import Special
-import testing
+import Testing
 # Set page config
 st.set_page_config(layout="wide")
 
 # Create a function to display the homepage
-def testingfun():
+def TESTINGFUN():
     import streamlit as st
     testing.test() 
 def BREAKFAST():    
@@ -83,7 +83,7 @@ pages = {
     "SNACKS": SNACKS,
     "DINNER": DINNER,
     "SPECIAL": SPECIAL,
-    "testingfun": testingfun,
+    "TESTINGFUN": TESTINGFUN,
 
 }
 
