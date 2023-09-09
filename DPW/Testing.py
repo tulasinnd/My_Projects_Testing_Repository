@@ -4,7 +4,7 @@ def test():
     import streamlit as st
     # Define function to create block with colored heading
     def create_block(heading, content,pic, color,col):
-        st.write(f'<div style="background-color:{color}; padding:10px; border-radius:5px; margin-bottom:10px; display:flex; align-items:center;">'
+        #st.write(f'<div style="background-color:{color}; padding:10px; border-radius:5px; margin-bottom:10px; display:flex; align-items:center;">'
          #f'<div style="flex:1;"><h4 style="color:{col}">{heading}</h4><p style="color:{col}; font-size: 20px">{content}</p></div>'
          f'<div ><h4 style="color:{col}">{heading}</h4><img src="{pic}" style="width:384px; height:auto;"></div>'
          f'</div>',
