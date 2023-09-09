@@ -15,7 +15,7 @@ st.set_page_config(layout="wide")
 # Create a function to display the homepage
 def TESTINGFUN():
     import streamlit as st
-    testing.test() 
+    Testing.test() 
 def BREAKFAST():    
     import streamlit as st    
     tab1, tab2 = st.tabs(["VEG", "NON-VEG"]) 
